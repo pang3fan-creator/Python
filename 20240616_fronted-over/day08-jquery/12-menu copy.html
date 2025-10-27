@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles/reset.css">
+	<style type="text/css">
+		#menu-container{
+			width: 250px;
+			margin: 0 auto;
+			padding: 10px;
+			border: 1px solid #ccc;
+		}
+		#menu-container li{
+			font-size:14px;
+			line-height: 2em;
+		}
+		#menu-container>li>ol{
+			margin-left:20px;
+		}
+	</style>
+</head>
+<body>
+	<ul id="menu-container">
+		<li>
+			<a href="#">用户管理</a>
+			<ol>
+				<li><a href="#">添加用户</a></li>
+				<li><a href="#">用户列表</a></li>
+			</ol>
+		</li>
+		<li>
+			<a href="#">文章管理</a>
+			<ol>
+				<li><a href="#">发表文章</a></li>
+				<li><a href="#">文章列表</a></li>
+				<li><a href="#">文章回收站</a></li>
+			</ol>
+		</li>
+		<li>
+			<a href="#">站点管理</a>
+			<ol>
+				<li><a href="#">管理员权限</a></li>
+				<li><a href="#">系统配置</a></li>
+				<li><a href="#">数据备份及还原</a></li>
+			</ol>
+		</li>		
+	</ul>
+	<script src="../jquery/jquery-3.7.1.js"></script>
+	<script>
+		/*
+		$('#menu-container>li>a').on('click',function(){
+			$(this).next().slideToggle();
+		});
+		*/
+		$('#menu-container>li').not(':first').children('ol').slideUp();
+		$('#menu-container>li>a').on('click',function(){
+			$(this).next().slideToggle();
+			$(this).parent().siblings().children('ol').slideUp();
+		});
+	</script>
+</body>
+</html>

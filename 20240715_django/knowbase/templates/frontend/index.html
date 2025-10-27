@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>知库管理平台::首页</title>
+        <link rel="stylesheet" href="{% static 'frontend/styles/reset.css' %}">
+        <link rel="stylesheet" href="{% static 'frontend/styles/index.css' %}">
+    </head>
+    <body>
+        <h1>{{ a }}</h1>
+       {% include 'frontend/include/header.html' %}
+        <main>
+            <div class="container">
+                <div class="article-list">
+                    {% if article %}
+                    <ul>
+                        {% for item in article %}
+                        <li>
+                            <h1 class="subject">
+                                <a href="/article/{{ item.id }}/" target="_blank">{{ item.subject }}</a>
+                            </h1>
+                            <div class="description">
+                                {{ item.content|safe|striptags|truncatechars:170 }}
+                            </div>
+                            <div class="info clearfix">
+                                <a href="#">
+                                    <img src="{{ MEDIA_URL|add:'backend/avatar/'|add:item.author.face }}" alt="" class="avatar">
+                                    <span>{{ item.author.nickname }}</span>
+                                </a>
+                                <span class="date">{{ item.created_at|date:'Y-m-d H:i' }}</span>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <!-- 分页 -->
+                    
+                    <nav data-pagination>
+                        <ul>
+                            <li id="page-info">第{{ article.number }}页/共{{ article.paginator.num_pages }}页</li>
+                            {% if article.has_previous %}
+                                <li><a href="{{ request.path }}?pageno=1">最前页</a></li> 
+                                <li><a href="{{ request.path }}?pageno={{ article.previous_page_number }}">上一页</a></li>
+                            {% else %}
+                                <li><a href="#" disabled>最前页</a></li> 
+                                <li><a href="#" disabled>上一页</a></li>
+                            {% endif %}
+                            
+                            {% if article.has_next %}
+                                 <li><a href="{{ request.path }}?pageno={{ article.next_page_number }}">下一页</a></li> 
+                                 <li><a href="{{ request.path }}?pageno={{ article.paginator.num_pages }}">最后页</a></li>
+                            {% else %} 
+                                <li><a href="#" disabled>下一页</a></li>
+                                <li><a href="#" disabled>最后页</a></li>
+                            {% endif %}
+ 
+                        </ul>
+                    </nav>
+                    {% else %}
+                    <!-- 分页 -->
+                    <div class="null-set">
+                        <img src="{% static 'frontend/images/null_set.png' %}" alt="">
+                    </div>
+                    {% endif %}
+
+                </div>
+                <div class="sidebar">
+                    <div class="inner">
+                        <h1 class="title">名星作者</h1>
+                        <ul class="author-list">                       
+                            <li>
+                                <a href="#">
+                                    <img src="{{ MEDIA_URL|add:'backend/avatar/01c6115f0d34bca801206621eaa6db.jpg' }}" alt="">
+                                    <div>
+                                        <p>草帽船长<span>0</span>篇</p>
+                                        <p>最后发表于2023/12/12</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="{{ MEDIA_URL|add:'backend/avatar/01c6115f0d34bca801206621eaa6db.jpg' }}" alt="">
+                                    <div>
+                                        <p>Neil籽杉<span>0</span>篇</p>
+                                        <p>最后发表于2023/12/12</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="{{ MEDIA_URL|add:'backend/avatar/0062BPdSjw8er31lceeesg302s02sglj.gif' }}" alt="">
+                                    <div>
+                                        <p>四面佛<span>0</span>篇</p>
+                                        <p>最后发表于2023/12/12</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="{{ MEDIA_URL|add:'backend/avatar/6a5bdd8fjw8fcox4f4nn3j20sg0lcqbg.jpg' }}" alt="">
+                                    <div>
+                                        <p>一见而散<span>0</span>篇</p>
+                                        <p>最后发表于2023/12/12</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        {% include 'frontend/include/footer.html'%}
+    </body>
+</html>

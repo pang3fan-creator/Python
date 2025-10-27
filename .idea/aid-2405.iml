@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/month02/day04" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/month03/unit08/knowbase" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/month03/unit09/knowbase" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/month03/unit10/knowbase" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/month03/unit11/knowbase" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/month03-ajax/unit01/knowbase" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/month03/unit12-redis/knowbase" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/month03/unit13-redis/knowbase" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/month03/knowbase" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/month03/dadashop" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/month03-project/dadashop" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/5-month03-project/dadashop" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/5-month03-project/wuhua/dadashop" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/6-month04/20240923_transformer/Transformer-translate_pf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/7-deep_learning/20240923_transformer/Transformer-translate_pf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/20240818_before/0-month01-python/day22_evaluation/blog_system" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PyDocumentationSettings">
+    <option name="format" value="PLAIN" />
+    <option name="myDocStringFormat" value="Plain" />
+  </component>
+</module>

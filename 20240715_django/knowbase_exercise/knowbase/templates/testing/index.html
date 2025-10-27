@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	{% include 'testing/include/header.html' with title=title %}
+	<body>
+		<div class="container">
+			{% include 'testing/include/navigation.html' with title=title %}
+			<div id="product-wrapper">
+				<div id="product-wrapper-inner"  class="clearfix">
+						{% for book in books %}
+						<div class="product-item">
+							<div class="product-item-wrap">
+                                <a href="/testing/detail/{{ book.id }}" target="_blank">
+                                    <div class="book-img">
+                                        <img src="{{ MEDIA_URL|add:'testing/books/'|add:book.imageurl }}" alt=""/>
+                                    </div>
+                                    <div class="book-price">
+                                        <strong><em>￥</em><i>{{ book.sale_price }}</i></strong>
+                                    </div>
+                                    <div class="book-name">
+                                        {{ book.bookname }}
+                                    </div>
+                                </a>
+							</div>
+						</div>
+						{% endfor %}
+				</div>
+			</div>
+			<!-- 页码开始 -->
+			<div class="paginator">
+				<ul>
+					<li class="paginator-info">共{{ books.paginator.num_pages }}页/第{{ books.number }}页</li>				
+					{% if books.has_previous %}
+						<li><a href="/testing/?pageno=1">最前页</a></li>					
+						<li><a href="/testing/?pageno={{ books.previous_page_number }}">上一页</a></li>	
+					{% else %}
+						<li><a href="#" class="disabled">最前页</a></li>
+						<li><a href="#" class="disabled">上一页</a></li>
+					{% endif %}
+
+					{% if books.has_next %}
+						<li><a href="/testing/?pageno={{ books.next_page_number }}">下一页</a></li>
+						<!-- books为Page类型的对象 -->
+						<!-- Page对象有名称为paginator的属性，返回值为Paginator对象 -->
+						<!-- Paginator对象的num_pages属性将返回总页数，即最后页的页码 -->
+						<li><a href="/testing/?pageno={{ books.paginator.num_pages }}">最后页</a></li>
+					{% else %}
+						<li><a href="#" class="disabled">下一页</a></li>
+						<li><a href="#" class="disabled">最后页</a></li>	
+					{% endif %}
+				</ul>
+				<div class="shortcut">
+					<input type="text" id="pageno" value="{{ books.number }}"><input type="button" value="Go" id="gobtn">
+					<select id="page_list">
+						{% for n in books.paginator.page_range %}							
+							<option value="{{ n }}"{% if books.number == n%} selected{% endif %}>第{{ n }}页</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+			<!-- 页码结束 -->
+		</div>
+	</body>
+	<script src="{% static 'testing/scripts/jquery-2.0.0.min.js' %}"></script>
+	<script>
+		$(function(){
+
+			//为页码列表框添加change事件
+			$('#page_list').on('change',function(){
+				//获取被选定选项的值
+				let optValue = $(this).val();
+				//2.改变浏览器地址栏信息
+				location.href = `/testing/?pageno=${optValue}`
+			});
+
+			//为按钮添加一个事件
+
+			$('#gobtn').on('click',function(){
+				//1.获取文本框的页码
+				let pageno = $('#pageno').val();
+				//2.改变浏览器地址栏信息
+				location.href = '/testing/?pageno=' + pageno
+
+			});
+
+			$('.product-item').hover(
+				function(){
+					$(this).addClass('hover');
+				},
+				function(){
+					$(this).removeClass('hover');
+				}
+			);
+		});
+	</script>
+</html>

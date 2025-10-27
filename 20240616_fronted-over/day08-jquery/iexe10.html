@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/reset.css">
+    <script src="../jquery/jquery-3.7.1.js"></script>
+    <style>
+        td{
+            width: 200px;
+            border: 1px solid #000;
+            padding: 10px
+        }
+        table{
+            border: 1px;
+            margin: 0 auto;
+        }
+        td>select{
+            width:200px
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <table>
+            <tr>
+                <td>省份</td>
+                <td>
+                    <select name='select1' id="1">
+                        <option value="0">青岛市</option>
+                        <option value="1">济南市</option>
+                    </selected>
+                </td>                   
+            </tr>
+            <tr>
+                <td>城市</td>
+                <td>
+                    <select name='select2'  id="2">
+                        <option value="0">请选择...</option>
+                    </selected>
+                </td>
+            </tr>
+        </table>
+    </form>  
+    <script>
+        var citiesArray=[
+            {'1001':'市南区','1002':'市北区'},
+            {'2001':'大明区','2002':'历下区'},]
+        $('#1').change(function(){
+            $('#2').empty().append(`<option value="-1">请选择...</option>`)
+            let areaObject=citiesArray[cityValue=$(this).val()]
+            for(item in areaObject){
+                $('#2').append(`<option value="${item}">${areaObject[item]}</option>`)
+            }})
+        $('#1').trigger('change');
+    </script>
+</body>
+</html>

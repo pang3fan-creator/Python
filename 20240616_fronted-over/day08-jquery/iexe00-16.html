@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/reset.css">
+    <script src="../jquery/jquery-3.7.1.min.js"></script>
+    <style>
+        span {
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <span><input type="checkbox" name="名称">男</span>
+    <span><input type="button" value="名称"></span>
+    <script>
+        $('[type="button"]').click(function () {
+            $('[type="checkbox"]').prop('checked', !$('[type="checkbox"]').prop('checked'))
+        })
+
+    </script>
+</body>
+
+</html>

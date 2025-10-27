@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>公司产品</title>
+	<style>
+        body,p,div,h1,h2,h3,h4,h5,h6,a{
+            margin:0;
+            padding:0;
+        }
+        ul,ol{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+            color:#000;
+        }
+        body{
+            font-size:14px;
+            font-family:Microsoft Yahei;
+            line-height:1.8em;
+        }
+        #container{
+            width:960px;
+            margin:0 auto;
+        }
+        #container a:hover{
+            color:#900;
+            text-decoration:underline;
+        }
+        #heading{
+        	text-align: center;
+        	font-size:40px;
+        	margin:20px 0;
+        }
+    </style>
+</head>
+<body>
+	<div id="container">
+		<h1 id="heading">公司产品</h1>
+		<p>Summary
+A response to a blog post by Juergen Brendel pleading for the removal of the GIL.
+ADVERTISEMENT
+yesterday, Juergen Brendel blogs at length about the disadvantages of the GIL. He claims it is an architectural decision I'm making that limits his productivity.</p>
+<p>
+I don't expect that this or any response will stop the requests for the GIL's removal, despite a well-reasoned FAQ entry about the issue. But I also don't expect it to go away until someone other than me goes through the effort of removing it, and showing that its removal doesn't slow down single-threaded Python code.
+</p>
+
+<p>
+This has been tried before, with disappointing results, which is why I'm reluctant to put much effort into it myself. In 1999 Greg Stein (with Mark Hammond?) produced a fork of Python (1.5 I believe) that removed the GIL, replacing it with fine-grained locks on all mutable data structures. He also submitted patches that removed many of the reliances on global mutable data structures, which I accepted. However, after benchmarking, it was shown that even on the platform with the fastest locking primitive (Windows at the time) it slowed down single-threaded execution nearly two-fold, meaning that on two CPUs, you could get just a little more work done without the GIL than on a single CPU with the GIL. This wasn't enough, and Greg's patch disappeared into oblivion. (See Greg's writeup on the performance.)</p>
+
+<p>
+I'd welcome it if someone did another experiment along the lines of Greg's patch (which I haven't found online), and I'd welcome a set of patches into Py3k only if the performance for a single-threaded program (and for a multi-threaded but I/O-bound program) does not decrease.
+
+I would also be happy if someone volunteered to maintain a GIL-free fork of Python, in case that the single-threaded performance goal can't be met but there is significant value for multi-threaded CPU-bound applications. We might even end up with all the changes permanently part of the code base, but enabled only on request at compile time.</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知库管理平台/管理员/首页</title>
+    <link rel="stylesheet" href="{% static 'backend/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'backend/styles/layout.css' %}">
+    <script src="{% static 'backend/scripts/jquery-3.7.0.min.js' %}"></script>
+    <script>
+        $(function(){
+            $('.menu-item+ol').hide();
+            $('.menu-item').click(function(){
+                $(this).siblings('ol').slideToggle();
+               if($(this).find('span').eq(1).hasClass('icon-down')){
+                    $(this).find('span').eq(1).removeClass('icon-down').addClass('icon-up')
+               } else {
+                    $(this).find('span').eq(1).removeClass('icon-up').addClass('icon-down')
+               }
+            });
+            $('.el-radio').click(function(event){
+                event.preventDefault();
+                $('.el-radio').removeClass('is-checked').children('.el-radio__input').removeClass('is-checked');
+                $(this).addClass('is-checked').children('.el-radio__input').addClass('is-checked');
+                $(this).find('input[type=radio][name=gender]').prop('checked',true)
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="app">
+        <!-- 头部区域开始 -->
+        {% include 'backend/include/header.html' %}
+        <!-- 头部区域结束 -->
+        <!-- 侧边栏开始 -->
+        {% include 'backend/include/sidebar.html' %}
+        <!-- 侧边栏结束 -->
+        <!-- 内容区域开始 -->
+        <div id="content">
+            <div class="content">
+                <div class="container">
+                    <h1 class="heading">编辑作者</h1>
+                    <form method="post" enctype="multipart/form-data" class="form-box" action="/backend/author/put/1/">
+                        <div class="form-item">
+                            <label class="form-item-label">旧密码</label>
+                            <div class="form-item-content">
+                                <input type="password" name="oldpassword" class="input-inner">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label class="form-item-label">新密码</label>
+                            <div class="form-item-content">
+                                <input type="password" name="password" class="input-inner">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label class="form-item-label">确认密码</label>
+                            <div class="form-item-content">
+                                <input type="password" name="password2" class="input-inner">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label class="form-item-label">作者昵称</label>
+                            <div class="form-item-content">
+                                <input type="text" name="nickname" class="input-inner">
+                            </div>
+                        </div>                        
+                        <div class="form-item">
+                            <label class="form-item-label">真实姓名</label>
+                            <div class="form-item-content">
+                                <input type="text" name="realname" class="input-inner">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label class="form-item-label">性别</label>
+                            <!--  -->
+                            <div class="form-item-content">
+                                <label class="el-radio  is_checked ">
+                                    <span class="el-radio__input  is-checked ">
+                                        <input class="el-radio__original" name="gender" type="radio" value="0">
+                                        <span class="el-radio__inner"></span>
+                                    </span>
+                                    <span class="el-radio__label">男</span>
+                                </label>
+                                <label class="el-radio">
+                                    <span class="el-radio__input ">
+                                        <input class="el-radio__original" name="gender" type="radio" value="1">
+                                        <span class="el-radio__inner"></span>
+                                    </span>
+                                    <span class="el-radio__label">女</span>
+                                </label>
+                            </div>
+                            <!--  -->
+                        </div>
+                        <div class="form-item">
+                            <label class="form-item-label">出生日期</label>
+                            <div class="form-item-content">
+                                <input type="text" name="birthday" class="input-inner">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label class="form-item-label">通讯地址</label>
+                            <div class="form-item-content">
+                               <input type="text" name="address" class="input-inner">
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <input type="submit" value="提交表单" class="button primary">
+                        </div>
+                    </form>                  
+                </div>
+            </div>
+        </div>
+        <!-- 内容区域结束 -->
+    </div>
+</body>
+</html>

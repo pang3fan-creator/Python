@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/reset.css">
+    <script src="../jquery/jquery-3.7.1.js"></script>
+    <style>
+        #div1{
+            border:1px solid #000;
+            text-align: center;
+            padding: 50px;
+            width: 500px;
+            margin: 0 auto;            
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <p>jgkgj</p>
+        <p>gjkgjkg</p>
+    </div>    
+    <div>
+        <input type="button" value='第一个' id="1">
+        <input type="button" value='第二个' id="2">
+    </div>
+    <script>
+        $('div>#1').click(
+            function(){
+                $('#div1').remove()
+            }
+        )
+        $('div>#2').click(
+            function(){
+                $('#div1').empty()
+            }
+        )
+        
+    </script>
+</body>
+</html>

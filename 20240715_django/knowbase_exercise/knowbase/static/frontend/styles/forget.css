@@ -1,0 +1,57 @@
+body{
+    background: url(../images/login-bg1-v1.jpg) no-repeat center center;
+    background-size: cover;
+}
+.container{
+    display: flex;
+    align-items: center;
+    height: 100%;          
+}
+.form-section {
+    position: relative;
+    height:300px;
+    width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.head{
+    margin:50px auto 20px auto;
+    font-size:20px;
+    text-align: center;
+    padding-bottom:20px;
+    color:#444;
+    border-bottom: 1px dotted #ccc;
+}
+.form-inputs .input {
+    margin:30px auto;
+    width:380px;
+    padding: 11px 10px 11px 13px;
+    display: block;
+    border: 1px solid #ccc;
+    background: none;
+    border-radius: 3px;
+    font: 14px/1.4 "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+}
+.form-inputs .submit{
+    color:#fff;
+    border: none;
+    background-color: #ff492f;
+    cursor: pointer;
+}
+.quick{
+    position: absolute;
+    right: 5px;
+    top:5px;
+   
+    
+    
+}
+.quick a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(../images/web_l.svg);
+    background-size: 40px;
+}

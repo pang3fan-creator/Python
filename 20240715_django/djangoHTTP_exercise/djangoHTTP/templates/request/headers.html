@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP请求之基本请求头</title>
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/layout.css' %}">
+<body>
+    <div class="container">
+        <h1 class="heading">HTTP请求之请求头</h1>
+        <h2 class="secondary">访问部分请求头</h2>
+        <table class="table">
+            <tr>
+                <td>路径信息</td>
+                <td>{{ request.path }}</td>
+            </tr>
+            <tr>
+                <td>URL参数</td>
+                <td>{{ request.META.QUERY_STRING }}</td>
+            </tr>
+            <tr>
+                <td>请求方式</td>
+                <td>{{ request.META.REQUEST_METHOD }}</td>
+            </tr>
+            <tr>
+                <td>代理器信息</td>
+                <td>{{ request.META.HTTP_USER_AGENT }}</td>
+            </tr>
+            <tr>
+                <td>协议及版本</td>
+                <td>{{ request.META.SERVER_PROTOCOL }}</td>
+            </tr>
+        </table>
+        <h2 class="secondary">访问所有请求头</h2>
+        <table class="table">
+            <!-- 字典对象的items()方法不用使用括号 -->
+            {% for key,value in request.META.items %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="secondary">访问HTTP前缀请求头</h2>
+        <table class="table">
+            {% for key,value in request.headers.items %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="secondary">分别通过视图函数和模板进行访问</h2>
+        <table class="table">
+            
+            <tr>
+                <td>协议及版本</td>
+                <td>{{ server_protocol }}</td>
+            </tr>
+            <tr>
+                <td>请求方式</td>
+                <td>{{ request_method }}</td>
+            </tr>
+            <tr>
+                <td>MIME类型</td>
+                <td>{{ content_type }}</td>
+            </tr>
+             <tr>
+                <td>用户代理</td>
+                <td>{{ user_agent }}</td>
+            </tr>
+            <tr>
+                <td>语言</td>
+                <td>{{ language }}</td>
+            </tr>
+            <tr>
+                <td>语言</td>
+                <td>{{ request.headers.Accept_Language }}</td>
+            </tr>
+            <tr>
+                <td>接收代码</td>
+                <td>{{ request.headers.Accept_Encoding }}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

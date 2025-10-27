@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS媒体查询示例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #ecf0f1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .explanation {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3498db;
+        }
+
+        .example-section {
+            margin: 30px 0;
+        }
+
+        .example-title {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: #34495e;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .nav-item:last-child {
+            border-right: none;
+        }
+
+        .nav-item:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        .brand-grid {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .brand-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .brand-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .screen-size {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 100;
+        }
+
+        /* 媒体查询示例 */
+        /* 平板设备样式 */
+        @media (max-width: 768px) {
+            .nav-item {
+                flex: 0 0 33.33%;
+            }
+
+            .brand-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .explanation {
+                background: #e8f4fc;
+            }
+        }
+
+        /* 手机设备样式 */
+        @media (max-width: 480px) {
+            .nav-item {
+                flex: 0 0 50%;
+            }
+
+            .brand-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .explanation {
+                background: #ffeaa7;
+                border-left: 5px solid #e74c3c;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* 非常小的手机设备样式 */
+        @media (max-width: 320px) {
+            .nav-item {
+                flex: 0 0 100%;
+            }
+
+            header {
+                padding: 15px;
+            }
+
+            .description {
+                font-size: 0.95rem;
+            }
+        }
+
+        .code-example {
+            background: #2d3436;
+            color: #f5f6fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .code-comment {
+            color: #dfe6e9;
+            opacity: 0.8;
+        }
+
+        .css-selector {
+            color: #81ecec;
+        }
+
+        .css-property {
+            color: #74b9ff;
+        }
+
+        .css-value {
+            color: #55efc4;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 14px;
+            border-top: 1px solid #eaeaea;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="screen-size">屏幕宽度: <span id="width">0</span>px</div>
+
+    <div class="container">
+        <header>
+            <h1>CSS媒体查询详解</h1>
+            <p class="description">@media (max-width: 480px) 的含义与应用</p>
+        </header>
+
+        <div class="content">
+            <div class="explanation">
+                <h2>媒体查询是什么？</h2>
+                <p>媒体查询是CSS3的一个特性，它允许内容适应不同的屏幕尺寸和设备类型。</p>
+                <p><code>@media (max-width: 480px)</code> 表示当屏幕宽度小于或等于480像素时，应用其中的CSS规则。</p>
+            </div>
+
+            <div class="example-section">
+                <h3 class="example-title">导航栏响应式示例</h3>
+                <p>调整浏览器窗口大小，观察导航栏布局变化：</p>
+
+                <div class="navbar">
+                    <a href="#" class="nav-item">淘宝</a>
+                    <a href="#" class="nav-item">BE</a>
+                    <a href="#" class="nav-item">RR</a>
+                    <a href="#" class="nav-item">阿里</a>
+                    <a href="#" class="nav-item">新浪</a>
+                    <a href="#" class="nav-item">优酷</a>
+                    <a href="#" class="nav-item">腾讯</a>
+                    <a href="#" class="nav-item">BA</a>
+                    <a href="#" class="nav-item">Bae</a>
+                </div>
+
+                <ul>
+                    <li>大屏幕：每行显示所有导航项</li>
+                    <li>中等屏幕(≤768px)：每行显示3个导航项</li>
+                    <li>小屏幕(≤480px)：每行显示2个导航项</li>
+                    <li>超小屏幕(≤320px)：每行显示1个导航项</li>
+                </ul>
+            </div>
+
+            <div class="example-section">
+                <h3 class="example-title">网格布局响应式示例</h3>
+                <p>调整浏览器窗口大小，观察网格布局变化：</p>
+
+                <div class="brand-grid">
+                    <div class="brand-card">
+                        <div class="brand-name">淘宝</div>
+                        <p>中国领先的C2C电商平台</p>
+                    </div>
+                    <div class="brand-card">
+                        <div class="brand-name">阿里巴巴</div>
+                        <p>全球最大的B2B电子商务公司</p>
+                    </div>
+                    <div class="brand-card">
+                        <div class="brand-name">新浪</div>
+                        <p>领先的中文网络媒体服务提供商</p>
+                    </div>
+                    <div class="brand-card">
+                        <div class="brand-name">优酷</div>
+                        <p>中国领先的视频分享平台</p>
+                    </div>
+                </div>
+
+                <ul>
+                    <li>大屏幕：4列布局</li>
+                    <li>中等屏幕(≤768px)：2列布局</li>
+                    <li>小屏幕(≤480px)：1列布局</li>
+                </ul>
+            </div>
+
+            <div class="code-example">
+                <pre><code><span class="code-comment">/* 平板设备样式 */</span>
+<span class="css-selector">@media (max-width: 768px)</span> {
+    <span class="css-selector">.nav-item</span> {
+        <span class="css-property">flex</span>: <span class="css-value">0 0 33.33%</span>;
+    }
+    
+    <span class="css-selector">.brand-grid</span> {
+        <span class="css-property">grid-template-columns</span>: <span class="css-value">repeat(2, 1fr)</span>;
+    }
+}
+
+<span class="code-comment">/* 手机设备样式 */</span>
+<span class="css-selector">@media (max-width: 480px)</span> {
+    <span class="css-selector">.nav-item</span> {
+        <span class="css-property">flex</span>: <span class="css-value">0 0 50%</span>;
+    }
+    
+    <span class="css-selector">.brand-grid</span> {
+        <span class="css-property">grid-template-columns</span>: <span class="css-value">1fr</span>;
+    }
+}
+
+<span class="code-comment">/* 非常小的手机设备样式 */</span>
+<span class="css-selector">@media (max-width: 320px)</span> {
+    <span class="css-selector">.nav-item</span> {
+        <span class="css-property">flex</span>: <span class="css-value">0 0 100%</span>;
+    }
+}</code></pre>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 CSS媒体查询示例 | 响应式网页设计基础</p>
+        </footer>
+    </div>
+
+    <script>
+        // 显示当前屏幕宽度
+        function updateScreenSize() {
+            document.getElementById('width').textContent = window.innerWidth;
+        }
+
+        window.addEventListener('load', updateScreenSize);
+        window.addEventListener('resize', updateScreenSize);
+    </script>
+</body>
+
+</html>

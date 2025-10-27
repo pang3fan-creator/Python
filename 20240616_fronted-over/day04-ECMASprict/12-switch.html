@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//内置对象  -- 日期对象
+		var now = new Date();		
+		var day = now.getDate();
+		var weekday = now.getDay();
+		switch(weekday){
+			case 0:
+				console.log('星期日');
+				break;
+			case 1:
+				console.log('星期一');
+				break;
+			case 2:
+				console.log('星期二');
+				break;
+			case 3:
+				console.log('星期三');
+				break;
+			case 4:
+				console.log('星期四');
+				break;
+			case 5:
+				console.log('星期五');
+				break;
+			case 6:
+				console.log('星期六');
+				break;
+		}
+		/////////////////////////////////////
+		var m = '2';
+		if(m == 1){
+			console.log('Python');
+		} else if (m == 2){
+			console.log('JavaScript');
+		} else {
+			console.log('Java');
+		}
+		
+		switch(m){
+			case 1:
+				console.log('Python');
+				break;
+			case 2:
+				console.log('JavaScript');
+				break;
+			default:
+				console.log('Java');
+				break;
+		}
+
+		//等价于
+		if( m === 1){
+			console.log('Pyton');
+		}
+		else if ( m === 2){
+			console.log('Javascript');
+		}
+		else{
+			console.log('Java');
+		}
+		//////////////////////////////////////////////
+		switch(day){
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+		case 8:
+		case 9:
+		case 10:
+			console.log('上旬');
+			break;
+
+		}
+
+	</script>
+</body>
+</html>

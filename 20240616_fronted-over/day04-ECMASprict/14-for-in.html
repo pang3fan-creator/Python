@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var users = ['Tom','Rose','Frank','Ben'];
+		for(index in users){
+			console.log(index);
+			console.log(users[index])
+		}
+		/////////////////////////////////////////
+		//内置对象  -- 日期对象
+		var now = new Date();
+		var weekday = now.getDay();
+		var weeknames=['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+		console.log(weeknames[weekday]);
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.red {
+			color: Red;
+		}
+	</style>
+</head>
+
+<body>
+	<p>A</p>
+	<p>B</p>
+	<p>C</p>
+	<p>D</p>
+	<p>E</p>
+	<script src="scripts/jquery-3.7.1.js"></script>
+	<script type="text/javascript">
+		//set all,设置时将一次性设置所有匹配对象
+		$('p').addClass("red");
+		//get one,获取时只获取到第一个对象
+		console.log($('p').html());
+		//////////////////////////////////////
+		//单独控制每一个段落的内容
+		$.each($('p'), function (index, obj) {
+			$(obj).html($(obj).html() + ++index);
+		});
+	</script>
+</body>
+
+</html>

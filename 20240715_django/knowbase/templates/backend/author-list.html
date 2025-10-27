@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知库管理平台/管理员/首页</title>
+    <link rel="stylesheet" href="{% static 'backend/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'backend/styles/layout.css' %}">
+    <script src="{% static 'backend/scripts/jquery-3.7.0.min.js' %}"></script>
+    <script>
+        $(function(){
+            $('.menu-item+ol').hide();
+            $('.menu-item').click(function(){
+                $(this).siblings('ol').slideToggle();
+               if($(this).find('span').eq(1).hasClass('icon-down')){
+                    $(this).find('span').eq(1).removeClass('icon-down').addClass('icon-up')
+               } else {
+                    $(this).find('span').eq(1).removeClass('icon-up').addClass('icon-down')
+               }
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="app">
+        <!-- 头部区域开始 -->
+        {% include 'backend/include/header.html' %}
+        <!-- 头部区域结束 -->
+        {% include 'backend/include/sidebar.html' %}
+        <!-- 内容区域开始 -->
+        <div id="content">
+            <div class="content">
+                <div class="container">
+                    <h1 class="heading">作者列表</h1>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>用户名</th>
+                                <th>昵称</th>
+                                <th class="center">真实姓名</th>
+                                <th class="center">性别</th>
+                                <th class="center">文章数量</th>
+                                <th class="center">等级</th>
+                                <th class="center">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in author %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ item.username }}</td>
+                                <td>{{ item.nickname }}</td>
+                                <td class="center">{{ item.authordetailinfo.realname }}</td>
+                                <td class="center">{{ item.authordetailinfo.gender|yesno:'女,男' }}</td>
+                                <td  class="center">{{ item.article_number }}</td>
+                                <td class="center">{{ item.level.level_name }}</td>
+                                <td class="center">
+                                    <a href="/backend/author/get/{{ item.id }}/" class="el-icon-edit">编辑</a>
+                                    <a href="/backend/author/delete/{{ item.id }}/" class="el-icon-remove">删除</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>                  
+                </div>
+            </div>
+        </div>
+        <!-- 内容区域结束 -->
+    </div>
+</body>
+</html>

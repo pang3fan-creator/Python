@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>首页</title>
+	<link rel="stylesheet" type="text/css" href="styles/reset.css">
+	<style type="text/css">
+		body{
+			font-size:14px;
+			font-family: Microsoft Yahei;
+		}
+		#container{
+			width: 960px;
+			margin: 0 auto;
+			border: 2px solid #f00;
+		}
+		.category-item{
+			
+			border: 2px solid #000;
+		}
+		.header{
+			padding:5px;
+			font-size:18px;
+			background: #f2f2f2;
+		}
+		.lists li{
+			line-height: 1.8em;
+		}
+		.lists a{
+			color:#000;			
+		}
+		.lists a:hover{
+			color:#900;
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<!-- 新闻分类开始 -->		
+		
+		<!-- <div class="category-item">
+			<h1 class="header">国内新闻</h1>			
+			<ul class="lists">				
+				<li><a href="#">xxx</a>a</li>				
+			</ul>
+		</div>		 -->
+		
+		
+		<!-- 新闻分类结束 -->
+	</div>
+	<script>
+		
+		//分类数据
+		let categoryData = [
+			{id:1,catename:'国内新闻'},
+			{id:2,catename:'国际新闻'},
+			{id:3,catename:'体育新闻'},
+			{id:4,catename:'娱乐新闻'},
+			{id:5,catename:'军事新闻'},
+		]
+		let newsData = [
+			//subject为新闻标题,categoryId表示分类ID
+			{id:1,subject:'国内新闻1',categoryId:1},
+			{id:2,subject:'国际新闻1',categoryId:2},
+			{id:3,subject:'娱乐新闻1',categoryId:4},
+			{id:4,subject:'国内新闻2',categoryId:1},
+			{id:5,subject:'军事新闻1',categoryId:5},
+			{id:6,subject:'国内新闻6',categoryId:1},
+			{id:7,subject:'体育新闻1',categoryId:3},
+			{id:8,subject:'国际新闻2',categoryId:2},
+		]
+		//循环
+		let html = '';
+		for(let n = 0;n<categoryData.length;n++){
+			html += `<div class="category-item">
+						<h1 class="header">${categoryData[n].catename}</h1>			
+						<ul class="lists">`				
+			for(let i = 0;i<newsData.length;i++){
+				if (newsData[i].categoryId == categoryData[n].id ){
+					html += `<li><a href="#">${newsData[i].subject}</a></li>`
+				}
+			}
+			html +=	`</ul></div>`;
+		}
+		document.getElementById("container").innerHTML = html;
+		
+	</script>
+</body>
+</html>

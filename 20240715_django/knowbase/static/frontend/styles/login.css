@@ -1,0 +1,136 @@
+body{
+    background-color: #f3f7f9;
+}
+#main-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+#auth-sidebar{
+    position: relative;
+    flex-grow: 0;
+    width: 450px;
+    height: 100%;
+}
+#auth-sidebar .auth-sidebar-content{
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+#auth-sidebar .auth-sidebar-video {
+    display: block;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 100%;
+}
+#main-container .content{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: auto;
+   
+}
+#main-container .content .main {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 600px;
+}
+.auth-content {
+    margin: 0 0 0 150px;
+    padding: 30px 60px 0;
+    width: 100%;
+    max-width: 600px;
+}
+.auth-form{
+    padding:40px;
+    border:1px solid #ccc;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.3);
+    border-radius: 10px;
+}
+.auth-form h2 {
+    margin-bottom: 40px;
+    font: bold 16px/24px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #0d0c22;
+    padding:15px 25px;
+    color:#fff;
+    text-align: center;
+    font-weight: normal;
+    border-radius: 3px;
+}
+.auth-form label {
+    display: block;
+    margin: 14px 0 4px;
+    color: #0d0c22;
+    font: normal 14px/24px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.auth-form input.text-input{
+    width: 100%;
+    margin-right: 8px;
+    border-radius: 8px;
+    line-height: 26px;
+    padding:10px 16px;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    color: #0d0c22;
+    border: 1px solid #e7e7e9;
+    margin-bottom: 20px;
+}
+input:hover[type='text'], input:hover[type='password']{
+    border-color: rgba(0,0,0,0.1);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(234,76,137,0.1);
+}
+input:active[type='text'], input:active[type='password']{
+    border-color: #e7e7e9;
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+input:focus[type='text'], input:focus[type='password']{
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(234,76,137,0.1);
+}
+.btn2, a.btn2 {
+    box-sizing: border-box;
+    width: 416px;
+    height: 56px;
+    padding: 0 16px;
+    overflow: hidden;
+    transition: 0.15s cubic-bezier(0.32, 0, 0.59, 0.03);
+    border:0px solid #0d0c22;
+    border-radius: 3px;
+    background-color:#cf3f1c ;
+    color: #fff;
+    font-family: inherit;
+    font-size:14px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.shortcut-action{
+    margin-top:30px;
+}
+.shortcut-action .login{
+    float:left;
+}
+.shortcut-action .login a{
+    color:#ff7300;
+}
+.shortcut-action .forgot{
+    float:right
+}
+.shortcut-action .forgot a{
+    color:#222;
+}

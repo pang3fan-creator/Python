@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+{% include 'testing/include/header.html' with title=title %}
+<body>
+    <div class="container">
+        {% include 'testing/include/navigation.html' with title=title %}
+        <h2 class="second">查找价格大于1000的图书，同时按价格降序排列</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>分类</td>
+            </tr>
+            {% for item in books %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知库管理平台::登录</title>
+    <link rel="stylesheet" href="{% static 'frontend/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/styles/login.css' %}">
+
+</head>
+<body>
+    <div id="main-container">
+        <div id="auth-sidebar">
+            <video src="{% static 'frontend/videos/b8bd4e4273cceae2889d9d259b04f732.mp4' %}" autoplay loop muted  class="auth-sidebar-video"></video>
+        </div>
+        <div class="content">
+            <div class="main">
+                <div class="auth-content">                    
+                    <div class="auth-form">
+                        <h2>登录</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            <label>用户名</label>
+                            <input type="text" id="username" name="username" class="text-input" autocomplete="off">
+                            <label>密码</label>
+                            <input type="password" id="password" name="password" class="text-input" autocomplete="off">
+                            <input type="submit" value="登录/SIGN IN" class="btn2">
+                        </form>
+                        <div class="clearfix shortcut-action">
+                            <span class="login"><a href="/register/">注册新账号</a></span>
+                            <span class="forgot"><a href="/forget/">忘记密码</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

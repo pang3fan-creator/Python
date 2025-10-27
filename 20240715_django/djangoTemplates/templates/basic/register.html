@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+{% include 'inc/header.html' with title="注册新用户" %}
+<body>
+    <div class="container">
+        <h1 class="heading">注册新用户</h1>
+        <div>
+            <p>左侧双花括号:{% templatetag openvariable %}</p>
+            <p>右侧双花括号:{% templatetag closevariable %}</p>
+            <p>标签的左侧:{% templatetag openblock %}</p>
+            <p>标签的右侧:{% templatetag closeblock %}</p>
+        </div>
+        <div>
+            {% verbatim %}
+                <p>在Django的模板中变量通过{{ 变量名称 }}访问</p>
+                <p>在Django的模板中循环通过{% for %}标签访问，其语法为：</p>
+                <p>{% for variable in sequence %}</p>
+                <p>...</p>
+                <p>...</p>
+                <p>{% endfor %}</p>
+            {% endverbatim %}
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <table class="table">
+                <tr>
+                    <td>用户名</td>
+                    <td><input type="text" name="username" placeholder="请输入用户名" class="input"></td>
+                </tr>
+                <tr>
+                    <td>密码</td>
+                    <td><input type="password" name="password" placeholder="请输入密码" class="input"></td>
+                </tr>
+                <tr>
+                    <td>确认密码</td>
+                    <td><input type="password" name="password2" placeholder="请再次输入密码" class="input"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="注册新用户"></td>
+                </tr>
+            </table>
+        </form>
+       {% include 'inc/footer.html' %}      
+    </div>
+</body>
+</html>

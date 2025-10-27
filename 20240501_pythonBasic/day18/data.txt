@@ -1,0 +1,1 @@
+StuModel('xiaoyi','18','女')

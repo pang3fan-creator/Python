@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增收货地址</title>
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/address.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="mt">
+            新增收货地址
+        </div>
+        <table class="table">
+            <tr>
+                <td>收货人：</td>
+                <td>{{ consigneeName }}</td>
+            </tr>
+            <tr>
+                <td>详细地址：</td>
+                <td>{{consigneeAddress}}</td>
+            </tr>
+            <tr>
+                <td>手机号码：</td>
+                <td>{{consigneeMobile}}</td>
+            </tr>
+            <tr>
+                <td>固定电话：</td>
+                <td>{{consigneePhone}}</td>
+            </tr>
+            <tr>
+                <td>邮箱地址</td>
+                <td>{{consigneeEmail}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

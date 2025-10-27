@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,div,h1,h2,h3,h4,h5,h6,ul,ol{
+            margin:0;
+            padding:0;
+        }
+        table{
+            border-collapse:collapse;
+            border-spacing:0;
+        }
+        #container{
+            width:960px;
+            margin:0 auto;
+        }
+        #container table{
+            width:100%;
+        }
+        #container td{
+            padding:10px;
+            border:1px solid #333;
+        }
+        .col1{
+            width:350px;
+        }
+    </style>
+</head>
+<body>
+<form action="" method="post">
+    <div id="container">
+        <table>
+            <tr>
+                <td class="col1">用户名</td>
+                <td><input type="text" name="username" id="username"></td>
+            </tr>
+            <tr>
+                <td class="col1">密码</td>
+                <td><input type="password" name="password" id="password"></td>
+            </tr>
+            <tr>
+                <td class="col1">确认密码</td>
+                <td><input type="password" name="password2" id="password2"></td>
+            </tr>
+            <tr>
+                <td class="col1">爱好</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="1">篮球
+                    <input type="checkbox" name="hobby" value="2">足球
+                    <input type="checkbox" name="hobby" value="3">网球
+                    <input type="checkbox" name="hobby" value="4">乒乓球
+                    <input type="checkbox" name="hobby" value="5">羽毛球
+                </td>
+            </tr>
+            <tr>
+                <td class="col1">&nbsp;</td>
+                <td><input type="submit" value="免费注册"></td>
+            </tr>
+        </table>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		/*优先级为110*/
+		#box.wrapper{
+			border: 2px solid #f00;
+			width: 200px;
+			height: 150px;
+			margin: 0 auto;
+		}
+
+		/*优先级为100*/
+		#box{ 			
+			border:2px solid #000;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="box" class="wrapper"></div>
+</body>
+</html>

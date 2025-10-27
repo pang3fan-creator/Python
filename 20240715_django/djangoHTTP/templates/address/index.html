@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增收货地址</title>
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/address.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="mt">
+            新增收货地址
+        </div>
+        <form method="post">
+            <table class="table">
+                <tr>
+                    <td>收货人：</td>
+                    <td><input type="text" name="consigneeName" class="input"></td>
+                </tr>
+                <tr>
+                    <td>详细地址：</td>
+                    <td><input type="text" name="consigneeAddress" class="input"></td>
+                </tr>
+                <tr>
+                    <td>手机号码：</td>
+                    <td><input type="text" name="consigneeMobile" class="input"></td>
+                </tr>
+                <tr>
+                    <td>固定电话：</td>
+                    <td><input type="text" name="consigneePhone" class="input"></td>
+                </tr>
+                <tr>
+                    <td>邮箱地址</td>
+                    <td><input type="text" name="consigneeEmail" class="input"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="保存收货地址" class="save-btn"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

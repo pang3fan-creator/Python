@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body>
+	<h1 class="a">标题1</h1>
+	<h1 class="a">标题1</h1>
+	<h2 class="a">标题2</h2>
+	<h2 class="a">标题2</h2>
+	<div id="wrapper">
+		<p class="a">段落</p>
+		<div>
+			<p class="a">段落</p>
+		</div>
+	</div>
+	<script>
+		let a = document.getElementsByClassName('a');
+		console.log(a.length);
+		let b = document.getElementById('wrapper').getElementsByClassName('a');
+		console.log(b.length);
+	</script>
+</body>
+
+</html>

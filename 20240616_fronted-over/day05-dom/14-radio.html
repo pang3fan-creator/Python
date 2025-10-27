@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body>
+	<p><input type="radio" id="sex">男</p>
+	<p><input type="button" value="让单选框选定" onclick="changeRadio()"></p>
+	<script type="text/javascript">
+		function changeRadio() {
+			let radioEle = document.getElementById("sex");
+			//控制单选框的选定
+			radioEle.checked = true;
+		}
+	</script>
+</body>
+
+</html>

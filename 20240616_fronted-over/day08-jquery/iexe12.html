@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/reset.css">
+    <script src="../jquery/jquery-3.7.1.js"></script>
+    <style>
+        #div1{
+            width:300px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: rgb(243, 243, 243);
+        }
+        .div2>ul>li{
+            color: rgb(248, 122, 122);
+            padding-left:10px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div class="div2"><a href="#">用户管理</a>
+            <ul>
+                <li> 添加用户</li>
+                <li> 用户列表</li>
+            </ul>
+        </div>
+        <div class="div2"><a href="#">文章管理</a>
+            <ul>
+                <li> 发表文章</li>
+                <li> 文章列表</li>
+            </ul>
+        </div>
+        <div class="div2"><a href="#">站点管理</a>
+            <ul>
+                 <li> 管理员权限</li>
+                 <li> 系统配置</li>
+            </ul>
+        </div>
+    </div>    
+    <script>
+        $('.div2 ul').not(':first').slideUp()
+        $('.div2>a').click(function(){
+            $(this).next().slideToggle().parent().siblings().children('ul').slideUp()
+        })
+    </script>
+</body>
+</html>

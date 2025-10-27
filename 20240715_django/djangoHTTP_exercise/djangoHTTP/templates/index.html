@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Django之HTTP请求与响应</title>
+        <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/layout.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="heading">Django之HTTP请求与响应</h1>
+            <h2 class="secondary">HTTP请求</h2>
+            <ul class="list">
+                <li><a href="/request/basic/?username=rose&id=9&page=7">基本请求数据</a></li>
+                <li><a href="/request/headers/">请求头</a></li>
+                <li><a href="/request/parameters/?print=true&uri=parameters&page=6">URL请求参数</a></li>
+                <li><a href="/request/body/">请求体</a></li>
+                <li><a href="/request/register/">用户注册</a></li>
+            </ul>
+            <h2 class="secondary">HTTP响应</h2>
+            <ul class="list">
+                <li><a href="/response/responseHTML/">响应HTML</a></li>
+                <li><a href="/response/responseText/">响应Text</a></li>
+                <li><a href="/response/responseCSS/">响应CSS</a></li>
+                <li><a href="/response/responseJS/">响应JavasScript</a></li>
+                <li><a href="/response/responseJSON/">响应JSON</a></li>
+                <li><a href="/response/responseJSON1/">JSONResponse</a></li>
+                <li><a href="/response/redirectToBaidu/">重定向到百度</a></li>
+                <li><a href="/response/redirectToSina/">重定向到新浪</a></li>
+                <li><a href="/response/headers/">设置响应头</a></li>
+                <li><a href="/response/badRequest/">非法请求</a></li>
+                <li><a href="/response/notFound/">页面未找到</a></li>
+                <li><a href="/response/serverError/">服务器错误</a></li>
+            </ul>
+            <h2 class="secondary">视图</h2>
+            <ul class="list">
+                <li><a href="/address/">基于类的视图</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

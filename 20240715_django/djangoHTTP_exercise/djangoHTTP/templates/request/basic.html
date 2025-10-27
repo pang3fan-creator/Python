@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP请求之基本请求数据</title>
+    <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/layout.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">HTTP请求之基本请求数据</h1>
+        <p>请求方式：{{ request.method }}</p>
+        <p>请求协议：{{ request.scheme }}</p>        
+        <p>协议版本：{{ request.META.SERVER_PROTOCOL }}</p>
+
+
+
+        <p><strong>请求路径（不带参数）：</strong>{{ request.path }}</p>
+        <p><strong>请求路径（带有参数）：</strong>{{ request.get_full_path }}</p>
+        <p><strong>完整路径：</strong>{{ request.build_absolute_uri }}</p>
+        
+
+        <p>主机名称：{{ request.get_host }}</p>
+        <p>端口信息：{{ request.get_port }}</p>
+    </div>
+</body>
+</html>

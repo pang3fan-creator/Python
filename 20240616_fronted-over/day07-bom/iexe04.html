@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/reset.css">
+    <script src="../jquery/jquery-3.7.1.js"></script>
+    <style>
+        #div_1{
+            width: 960px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="div_1">
+        <h1>用户注册许可协议</h1>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p>...</p>
+        <p><input type="button" value="我同意5"></p>
+    </div>
+    <script>
+        let buttonJQ=$('[type="button"]')
+        let i=5
+        let intervalId=window.setInterval(()=>{
+            i--;
+            buttonJQ.val(`我同意${i}`);
+            if(i==0){
+                window.clearInterval(intervalId);
+                buttonJQ.val('我同意')
+            }
+        },1000)
+        buttonJQ.click(function(){
+            location.href='http://www.baidu.com'
+        })
+    </script>
+</body>
+</html>

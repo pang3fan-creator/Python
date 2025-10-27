@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+{% include 'inc/header.html' with title="变量" %}
+<body>
+    <div class="container">
+        <div>
+            <h1 class="heading">变量</h1>
+            <p>姓名：{{ username }}</p>
+            <p>年龄：{{ age }}</p>
+            <p>工资：{{ salary }}</p>
+            <p>好友：{{ friends.0 }}、{{ friends.1 }}、{{ friends.2 }}</p>
+            <p>成绩：语文:{{ scores.chinese }}、数学:{{ scores.math }}、英语:{{ scores.english }}</p>
+            <p>姓名:{{ object.get_username }}、年龄:{{ object.get_age }}、标志:{{ object.flag }}</p>
+        </div>
+        {% include 'inc/footer.html'%}
+    </div>
+</body>
+</html>

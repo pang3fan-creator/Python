@@ -1,0 +1,174 @@
+body{
+    font-size:14px;
+    font-family: 微软雅黑;
+}
+.container{
+    width: 960px;
+    margin: 0 auto;
+}
+.heading{
+    font-size: 36px;
+    padding-bottom: 10px;
+    margin: 10px auto;
+    border-bottom: 1px solid #ccc;
+}
+h2.secondary{
+    font-size: 24px;
+    padding-bottom: 10px;
+    margin: 10px auto;
+    border-bottom:1px dotted #ccc;
+    background-color: transparent;
+}
+a:link,a:visited{
+    color: #000;
+}
+a:hover,a:active,a.active{
+    color: #8d0000;
+}
+.list,p,.boxing{
+    line-height: 1.8;
+}
+.list a {
+    font-size: 14px;
+}
+.table{
+    width: 100%;
+}
+.table td,.table th{
+    padding:10px;
+    border:1px solid #ccc;
+}
+.table th{
+    font-weight: bold;
+    text-align: left;
+}
+.primary {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.secondary {
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+}
+.tertiary,
+.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+.footer{
+    border-top:2px solid #ccc;
+    margin:10px auto;
+    padding: 10px;
+    line-height: 2;
+    text-align: center;
+}
+.input{
+    width:220px;
+    height:30px;
+    padding:0 5px;
+    line-height: 30px;
+    border:1px solid #ccc;
+}
+.logo{
+    width: 500px;
+    margin: 0 auto;
+}
+.sina_logo{
+    width: 111px;
+    height: 47px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    text-align: center;
+    line-height: 47px;
+}
+
+.comment-list{
+    padding: 0 30px;
+    border: 1px solid #e8e8e8;
+    border-top: none;
+    color: #333;
+    background: #fff;
+    font: 14px/24px Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Micro Hei, Arial, sans-serif;
+}
+.comment-list .item:first-child {
+    border-top: none;
+}
+.comment-list .item {
+    position: relative;
+    list-style: none;
+    margin-left: 76px;
+    padding: 12px 0 10px;
+    border-top: 1px solid #e8e8e8;
+}
+
+.comment-list .item .head {
+    float: left;
+    width: 46px;
+    margin-left: -76px;
+}
+
+.comment-list .item .head a {
+    display: block;
+    margin-top: 8px;
+    width: 46px;
+    height: 46px;
+    color: inherit;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.comment-list .item .head img {
+    width: 46px;
+    height: 46px;
+    border-radius: 100%;
+}
+
+.comment-list .cont .txt a{
+    color: #FF8400;
+    font-weight: normal;
+}
+
+.comment-list .cont .txt {
+    position: relative;
+    text-align: justify;
+    word-break: break-all;
+}
+
+.comment-list .cont .action {
+    font-size: 14px;
+    text-align: left;
+}
+.comment-list .cont  .action .time {
+    color: #999;
+}
+.border-top{
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px solid #ccc;
+}
+
+
+.piclist img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.piclist li{
+    margin-bottom:10px;
+    cursor: pointer;
+}
+.relative{
+
+    position: relative;
+}
+.shortcuts{
+    font-size:14px;
+    font-weight: normal;
+    margin-top: 24px;
+    margin-right: 18px;
+    float: right;
+}

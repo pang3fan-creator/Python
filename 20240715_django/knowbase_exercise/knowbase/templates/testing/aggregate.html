@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+{% include 'testing/include/header.html' with title=title %}
+<body>
+    <div class="container">
+        {% include 'testing/include/navigation.html' with title=title %}
+        <h2 class="second">统计所有图书的总数量</h2>
+        <table class="table">
+            <tr>
+                <td>{{ count_all }}</td>
+                
+            </tr>
+        </table>
+        <h2 class="second">统计价格介于50~120之间的图书的总数量</h2>
+        <table class="table">
+            <tr>
+                <td>{{ count_by_sale_price }}</td>              
+            </tr>
+        </table>
+        <h2 class="second">统计价格的相关信息</h2>
+        <table class="table">
+            <tr>
+                <td>最高价</td>
+                <td>最低价</td>
+                <td>平均价</td>
+            </tr>
+            <tr>
+                <td>{{ aggregate_price.max_price }}</td>
+                <td>{{ aggregate_price.min_price }}</td>
+                <td>{{ aggregate_price.avg_price|floatformat:2 }}</td>
+            </tr>
+        </table>
+        <h2 class="second">统计出版社与出版量的统计信息</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>出版社</td>
+                <td>数量</td>
+            </tr>
+            {% for item in annotate_by_publishing %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.pcount }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">统计图书类型与出版量、价格等的统计信息</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>类型</td>
+                <td>数量</td>
+                <td>最高价</td>
+                <td>最低价</td>
+                <td>平均价</td>
+            </tr>
+            {% for item in annotate_by_category %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.ccount }}</td>
+                <td>{{ item.max_price }}</td>
+                <td>{{ item.min_price }}</td>
+                <td>{{ item.avg_price|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

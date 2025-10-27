@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="scripts/jquery-3.7.1.js"></script>
+	<link rel="stylesheet" href="../jquery/reset.css">
+</head>
+<body>
+	<p id="p">段落</p>
+	
+	<script>
+		//根据ID获取到jQuery对象
+		var jq_object1 = $('#p');
+		var jq_object2 = jQuery('#p');
+		//将jQuery对象转换成DOM对象
+		var dom_object1 = jq_object1[0];
+		var dom_object2 = jq_object2.get(0);
+		//通过DOM方法来设置内容和样式
+		dom_object1.innerHTML = '中华人民共和国万岁';
+		dom_object2.style.color = 'red';
+
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body>
+	<table id="table">
+		<tr>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+		</tr>
+		<tr>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+		</tr>
+		<tr>
+			<td>12</td>
+			<td>12</td>
+			<td>12</td>
+		</tr>
+	</table>
+	<p><input type="button" value="改变表格的属性" onclick="changeTable()"></p>
+	<script>
+		function changeTable() {
+			//获取元素
+			let tableEle = document.getElementById("table");
+			// 设置属性,如border,width,align等
+			tableEle.border = '1';
+			tableEle.width = '800';
+			tableEle.align = 'center';
+			// 设置表格的内边框及外边距
+			tableEle.cellPadding = '30';
+			tableEle.cellSpacing = '0';
+			// 修改页面的背景颜色
+			document.body.bgColor = '#ccc';
+		}
+
+	</script>
+</body>
+
+</html>

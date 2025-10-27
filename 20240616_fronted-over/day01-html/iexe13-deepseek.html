@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML表单使用指南</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            list-style: none;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #6a11cb;
+            margin: 25px 0 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #2575fc;
+        }
+
+        h3 {
+            color: #2575fc;
+            margin: 20px 0 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .explanation,
+        .demo {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: grid;
+            grid-gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #6a11cb;
+            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.2);
+        }
+
+        button {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .code-example {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .form-example {
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .form-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eef7ff;
+            border-radius: 5px;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>HTML表单使用指南</h1>
+        <p>学习如何使用HTML表单元素收集用户输入</p>
+    </header>
+
+    <div class="container">
+        <div class="explanation">
+            <h2>表单基础知识</h2>
+            <p>HTML表单用于收集用户输入，表单数据被发送到服务器进行处理。</p>
+
+            <h3>表单基本结构</h3>
+            <div class="code-example">
+                <pre><code>&lt;form action="/submit" method="post"&gt;
+  &lt;!-- 表单元素 --&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+
+            <h3>常见表单元素</h3>
+            <ul>
+                <li><strong>input</strong> - 文本输入、单选按钮、复选框等</li>
+                <li><strong>select</strong> - 下拉选择框</li>
+                <li><strong>textarea</strong> - 多行文本输入</li>
+                <li><strong>button</strong> - 按钮</li>
+                <li><strong>label</strong> - 表单标签</li>
+            </ul>
+
+            <h3>表单属性</h3>
+            <p><strong>action</strong>: 指定提交表单数据的URL</p>
+            <p><strong>method</strong>: 提交表单的HTTP方法（get或post）</p>
+            <p><strong>name</strong>: 表单名称，用于JavaScript引用</p>
+
+            <h2>输入类型示例</h2>
+            <div class="form-example">
+                <h3>文本输入</h3>
+                <div class="code-example">
+                    <pre><code>&lt;input type="text" name="username" placeholder="请输入用户名"&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="form-example">
+                <h3>电子邮件</h3>
+                <div class="code-example">
+                    <pre><code>&lt;input type="email" name="email" required&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="form-example">
+                <h3>密码输入</h3>
+                <div class="code-example">
+                    <pre><code>&lt;input type="password" name="password"&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo">
+            <h2>实际演示</h2>
+            <p>填写下面的表单并查看结果：</p>
+
+            <form id="demoForm">
+                <div class="form-group">
+                    <label for="name">姓名：</label>
+                    <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">电子邮箱：</label>
+                    <input type="email" id="email" name="email" placeholder="example@domain.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">密码：</label>
+                    <input type="password" id="password" name="password" placeholder="请输入密码" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">年龄：</label>
+                    <input type="number" id="age" name="age" min="1" max="120">
+                </div>
+
+                <div class="form-group">
+                    <label>性别：</label>
+                    <div>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male" style="display: inline;">男</label>
+
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female" style="display: inline;">女</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">国家：</label>
+                    <select id="country" name="country">
+                        <option value="">请选择国家</option>
+                        <option value="china">中国</option>
+                        <option value="usa">美国</option>
+                        <option value="japan">日本</option>
+                        <option value="uk">英国</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>兴趣爱好：</label>
+                    <div>
+                        <input type="checkbox" id="reading" name="hobbies" value="reading">
+                        <label for="reading" style="display: inline;">阅读</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="sports" name="hobbies" value="sports">
+                        <label for="sports" style="display: inline;">运动</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="music" name="hobbies" value="music">
+                        <label for="music" style="display: inline;">音乐</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">留言：</label>
+                    <textarea id="message" name="message" rows="4" placeholder="请输入您的留言"></textarea>
+                </div>
+
+                <button type="submit">提交表单</button>
+            </form>
+
+            <div class="form-result" id="formResult">
+                <h3>表单提交结果：</h3>
+                <div id="resultContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 HTML表单使用指南 | designed for educational purposes</p>
+    </footer>
+
+    <script>
+        document.getElementById('demoForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            let resultHTML = '<ul>';
+
+            for (let [key, value] of formData.entries()) {
+                if (key === 'hobbies') {
+                    // 处理多选框
+                    const hobbies = formData.getAll('hobbies');
+                    resultHTML += `<li><strong>兴趣爱好</strong>: ${hobbies.join(', ')}</li>`;
+                } else {
+                    resultHTML += `<li><strong>${key}</strong>: ${value}</li>`;
+                }
+            }
+
+            resultHTML += '</ul>';
+
+            document.getElementById('resultContent').innerHTML = resultHTML;
+            document.getElementById('formResult').style.display = 'block';
+
+            // 滚动到结果区域
+            document.getElementById('formResult').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>

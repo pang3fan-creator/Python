@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<p><img src="images/1.jpg" id="image"></p>
+	<p><input type="button" value="单击我，变图" id="button"></p>
+	<script src="scripts/jquery-3.7.1.js"></script>
+	<script>		
+		$('#button').on('click',()=>{
+			/*			
+			$('#image').attr('src','images/2.jpg');
+			$('#image').attr('title','我变了哈');
+			*/
+			//可以简写成:
+			/*
+			$('#image').attr('src','images/2.jpg')
+			           .attr('title','我变了哟');
+			*/
+			//再简写成
+			$('#image').attr({
+				src:'images/2.jpg',
+				title:'我变了没'
+			});
+		});
+	</script>
+</body>
+</html>

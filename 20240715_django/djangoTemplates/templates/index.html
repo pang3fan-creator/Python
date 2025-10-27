@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    {% include 'inc/header.html' with title="首页" %}
+<body>
+    <div class="container">
+        <h1 class="heading">Django模板</h1>
+        <ul class="list">
+            <li><a href="/comment/">注释</a></li>
+            <li><a href="/variable/">变量</a></li>
+            <li><a href="/loop/">循环</a></li>
+            <li><a href="/case/">分支</a></li>
+            <li><a href="/register/">用户注册</a></li>
+            <li><a href="/staticfiles/">静态资源</a></li>
+            <li><a href="/filter/">过滤器</a></li>
+        </ul>
+        <ul class="list border-top">
+            <li><a href="users/index.html" class="active">用户模块</a></li>
+            <li><a href="books/index.html" class="active">图书模块</a></li>
+        </ul>
+        {% include 'inc/footer.html'%}
+    </div>
+</body>
+</html>

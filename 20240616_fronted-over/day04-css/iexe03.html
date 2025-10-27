@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/reset.css">
+    <style>
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+            height: 0;
+            overflow: hidden;
+        }
+        .div1{
+            background-color: #E92C4D;
+        }
+        ul{
+            position: relative;
+            width: 1200px;
+            margin: 0 auto;
+            /* border: 1px solid #000; */
+        }
+        .li_left{
+            float: left;
+            color: #ffffff;
+            padding: 15px;
+            line-height: 25px ;
+        }
+        .li_right{
+            position: absolute;
+            right: 0px;
+            color: rgb(255, 255, 255);
+            padding: 15px;
+            line-height: 25px ;            
+        }  
+        .li_right ul{
+            position:absolute;
+            top: 55px;
+           left: -27px ;
+           background-color: #e92c4d;
+           width: 120px;
+           padding: 5px;
+           padding-left: 10px ;
+           display: none;
+        }   
+        .li_right ul li{
+            color: #ffffff;
+        }   
+        .div2{
+            width: 1200px;
+            border: 1px solid #c5c5c5;
+            margin: 20px auto;
+        }
+        li:hover{
+            background-color: #ac0101;
+        }
+        li:hover ul{
+            display: block;
+        }
+        #top{
+            position:fixed;
+			right: 60px;
+			bottom: 30px;
+			padding:010px 10px;
+			width:64px;
+			border:1px solid #ccc;
+			border-radius: 5px;
+			font-size:14px;
+			text-align: center;
+        }
+        #top .icon{
+            width: 33px;
+		    height: 17px;
+		    margin: 13px 16px 10px;
+            background: url(images/ent.png) no-repeat -267px -850px;
+        }
+        #top a{
+			color:#000;
+		}
+		#top a:hover{
+			color:#f00;
+		}
+		#top a:hover .icon{
+			background-position: -267px -873px;
+		}
+		.menu-box{
+			float: right;
+			position: relative;
+		}
+    </style>
+</head>
+<body>
+    <div class="div1">
+        <ul class="clearfix">
+            <li class="li_left">明星</li>
+            <li class="li_left">微博</li>
+            <li class="li_left">电影</li>
+            <li class="li_left">电视</li>
+            <li class="li_left">综艺</li>
+            <li class="li_left">音乐</li>
+            <li class="li_left">戏剧</li>
+            <li class="li_left">视频</li>
+            <li class="li_left">韩娱</li>
+            <li class="li_left">莱坞</li>
+            <li class="li_left">博客</li>
+            <li class="li_left">专题</li>
+            <li class="li_left">图集</li>
+            <li class="li_left">排行</li>
+            <li class="li_left">滚动</li>
+            <li class="li_right">移动客户端
+                <ul>
+                    <li>新浪新闻客户端</li>
+                    <li>新浪新闻客户端</li>
+                    <li>新浪新闻客户端</li>
+                    <li>新浪新闻客户端</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="div2">
+        <p>这是段落</p>
+        <p>这是段落</p>
+        <p>这是段落</p>
+    </div>
+    <div id="top">
+        <a href="#">
+            <div class="icon"></div>
+            <div>返回顶部</div>
+        </a>
+    </div>
+</body>
+</html>

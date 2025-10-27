@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知库管理平台/管理员/登录</title>
+    <link rel="stylesheet" href="{% static 'backend/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'backend/styles/layout.css' %}">
+</head>
+<body id="login">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="login-container">
+            <div class="welcome">
+                <div class="slogan">生活就像一杯茶，不会苦一辈子，但总会苦一阵子</div>
+            </div>
+            <div class="form">
+                <div class="form-inner">
+                    <h1 class="login-tips">管理员登录</h1>
+                    <div class="form-ele">
+                        <input type="text" name="username" id="username" class="input username" autocomplete="off" placeholder="请输入用户名">
+                    </div>                    
+                    <div class="form-ele">
+                        <input type="password" name="password" id="password" class="input password" autocomplete="off" placeholder="请输入密码">
+                    </div>    
+                    <div class="form-ele">
+                        <input type="submit" value="登录" class="submit">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

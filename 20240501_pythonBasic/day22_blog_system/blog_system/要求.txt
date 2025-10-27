@@ -1,0 +1,74 @@
+博客管理系统, 要求如下:
+可以添加创建,查看,编辑,删除,添加,列出文章列表操作, 同时也可以为某篇文章添加评论, 
+要求中的类名称、方法名、方法传参等, 仅仅作为完成此管理系统的提示, 具体代码的视线可以按照自己的想法来, 代码风格不做任何限制,能完成就行,如果看不明白要求, 就去看演示效果
+
+1. 创建工程目录blog_system
+2. 创建mvc目录分别存放相关文件 controllers(blog_app.py)   models(blog_models.py)    views(blog_views.py) 
+3. 使用main.py作为主入口    使用app.run() 进入选择页面
+4. controllers(blog_app.py)   
+    run 方法  调用后进入功能选择页面:  1创建,2查看,3编辑,4删除,5添加,6列表,esc退出 根据不同的输入调用不同的方法
+    create_post
+    view_post
+    edit_post
+    delete_post
+    add_comment
+
+5. models(blog_models.py) 
+    Post 文章类        
+            对象属性:  文章id 标题 内容 作者 评论信息(列表形式) 创建时间 修改时间  
+            def __init__(self, post_id, title, content, author):
+
+            对象方法: 
+	add_comment() 添加评论方法      
+	def add_comment(self, comment):	
+
+	edit() 编辑方法
+	def edit(self, title, content):
+
+   Comment  评论类   
+            对象属性:  评论id  内容 作者 创建时间 
+            def __init__(self, comment_id, content, author):
+
+   BlogManager  操作管理类  
+            对象属性:  文章信息字典: posts = {}   自增文章id : next_post_id = 1   自增评论id: next_comment_id = 1
+            def __init__(self):
+
+           create_post()
+           def create_post(self, title, content, author): 
+
+           get_post()
+           def get_post(self, post_id):
+
+           list_posts	
+           def list_posts(self):
+
+           delete_post
+           def delete_post(self, post_id):
+		
+           add_comment_to_post
+           def add_comment_to_post(self, post_id, content, author):
+           (根据自己的技术能力选做此类,  因为如果写此类, 代码难度增加2倍, 此类作为所有操作的管理类,可以将操作单独成一个管理类,也可以都写在一个类里)
+   
+6. views(blog_views.py) 
+    View类     
+           display_message 显示相关操作信息,,比如: 添加成功, 删除失败等
+           def display_message(self, message):
+           
+           display_post    同时显示文章和评论
+           def display_post(self, post):
+
+            display_posts    显示文章信息
+            def display_posts(self, posts):
+
+            get_input    显示输入框
+            def get_input(self, prompt):
+
+7. main.py 
+       from controllers.blog_app import BlogApp
+
+       if __name__ == "__main__":
+           app = BlogApp()
+           app.run()
+ 
+
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<p id="p">段落</p>
+	<p><input type="button" value="改变段落的行内样式" id="button"></p>
+	<script src="scripts/jquery-3.7.1.js"></script>
+	<script type="text/javascript">
+		$('#button').on('click',function(){
+			/*
+			$('#p').css('color','red');
+			$('#p').css('font-size','30px');
+			$('#p').css('fontStyle','italic');
+			*/
+			//简写成
+			/*
+			$('#p').css('color','red')
+				   .css('font-size','30px')
+			       .css('fontStyle','italic');
+			*/
+			//可以简写成
+			$('#p').css({
+				color:'red',
+				fontStyle:'italic',
+				'font-size':'30px'
+			})
+		});
+	</script>
+</body>
+</html>

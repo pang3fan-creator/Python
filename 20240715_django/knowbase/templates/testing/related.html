@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    {% include 'testing/include/header.html' with title=title %}
+	<body>
+		<div class="container">
+            {% include 'testing/include/navigation.html' with title=title %}
+            <h2 class="second">正向关系</h2>
+            <table class="table">
+                <tr>
+                    <td>序号</td>
+                    <td>首都</td>
+                    <td>国家</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>北京</td>
+                    <td>中国</td>
+                </tr>
+            </table>
+            <h2 class="second">正向关系</h2>
+            <table class="table">
+                <tr>
+                    <td>序号</td>
+                    <td>首都</td>
+                    <td>国家</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>北京</td>
+                    <td>中国</td>
+                </tr>
+            </table>
+            <h2 class="second">反向关系</h2>
+            <table class="table">
+                <tr>
+                    <td>序号</td>
+                    <td>国家</td>
+                    <td>首都</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>中国</td>
+                    <td>北京</td>
+                </tr>
+            </table>
+            <h2 class="second">反向关系</h2>
+            <table class="table">
+                <tr>
+                    <td>序号</td>
+                    <td>国家</td>
+                    <td>首都</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>中国</td>
+                    <td>北京</td>
+                </tr>
+            </table>
+            <h2 class="second">首都为柏林的国家</h2>
+            <table class="table">
+                <tr>
+                    <td>序号</td>
+                    <td>国家</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>德国</td>
+                </tr>
+            </table>
+		</div>
+	</body>
+</html>

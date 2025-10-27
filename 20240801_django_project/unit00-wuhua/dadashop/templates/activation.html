@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>达达商城::用户激活</title>
+	<style type="text/css">
+		html,body,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dd,p,table,tr,td,th{
+			margin: 0;
+			padding: 0;
+		}
+		ul,ol{
+			list-style: none;
+		}
+		a{
+			text-decoration: none;
+			color: #000;
+		}
+		table{
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+		#container{
+			width: 96%;
+			margin: 0 auto;
+		}
+		#heading{
+			font-size:32px;			
+			margin-bottom:15px;
+		}
+		#container p{
+			font-size:16px;
+			line-height: 2.2em;
+		}
+		.username{
+			display: inline-block;
+			margin:0 5px;
+			color: #900;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h1 id="heading">达达商城-用户激活</h1>
+		<p>尊敬的<span class="username">{{ username }}</span>用户，您好：</p>
+		<p>恭喜您成为达达商城的正式会员，我们将竭诚为您提供优质的产品和服务</p>
+		<p>请单击以下链接，我们将协助您完成正式会员的激活工作：</p>
+		<p>&nbsp;</p>
+		<p><a href="http://127.0.0.1:7000/dadashop/templates/active.html?username={{ username }}&code={{ code }}">http://127.0.0.1:7000/dadashop/templates/active.html?username={{username}}&code={{ code }}</a></p>
+		<p>&nbsp;</p>
+		<p>正式会员享有的权利：</p>
+		<p>1.所有产品一律8折优惠</p>
+		<p>2.所有产品支持7天无条件退换货</p>
+		<p>3.积分换好物</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#container {
+			width: 960px;
+			margin: 0 auto;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		td {
+			padding: 10px;
+			border: 1px solid #333;
+		}
+
+		.hover {
+			background: #f5f6f7;
+		}
+
+		.checked {
+			background: #ffffda;
+		}
+	</style>
+</head>
+
+<body>
+	<form action="" method="post">
+		<table>
+			<tr>
+				<td><input type="checkbox" id="ctlBox" name="ctlBox"></td>
+				<td>邮件主题</td>
+				<td>操作</td>
+			</tr>
+			<tbody id="tbody">
+				<tr>
+					<td><input type="checkbox" name="mail" value="1"></td>
+					<td>A</td>
+					<td>
+						<a href="#" class="remove">删除</a>
+						&nbsp;
+						<a href="#" class="edit">编辑</a>
+						&nbsp;
+						<span class="remove">放入回收站</span>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="mail" value="2"></td>
+					<td>B</td>
+					<td>
+						<a href="#" class="remove">删除</a>
+						&nbsp;
+						<a href="#" class="edit">编辑</a>
+						&nbsp;
+						<span class="remove">放入回收站</span>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="mail" value="3"></td>
+					<td>C</td>
+					<td>
+						<a href="#" class="remove">删除</a>
+						&nbsp;
+						<a href="#" class="edit">编辑</a>
+						&nbsp;
+						<span class="remove">放入回收站</span>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="mail" value="4"></td>
+					<td>D</td>
+					<td>
+						<a href="#" class="remove">删除</a>
+						&nbsp;
+						<a href="#" class="edit">编辑</a>
+						&nbsp;
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<script src="scripts/jquery-3.7.1.js"></script>
+		<script>
+
+
+			//单击删除链接时
+			$('a.remove').on('click', function () {
+				if (confirm('你确认要删除吗?')) {
+					$(this).parents('tr').remove();
+				}
+			});
+
+
+			//控制复选框单击
+			$('#ctlBox').on('click', function () {
+				/////////////////////////////////
+
+				//获取指定对象的checked属性值
+				let status = $(this).prop('checked');
+				$(':checkbox[name="mail"]').prop('checked', status);
+				//根据当前控制复选框的状态来决定邮件复选框的行是否要使用指定的CSS类
+				if (status) {
+					$(':checkbox[name=mail]').parents('tr').addClass('checked');
+				} else {
+					$(':checkbox[name=mail]').parents('tr').removeClass('checked');
+				}
+			});
+
+			$('#tbody>tr').on('mouseover', function () {
+				$(this).addClass('hover');
+			});
+
+			$('#tbody>tr').on('mouseout', function () {
+				$(this).removeClass('hover');
+			});
+
+			//单击邮件复选框时
+			$(':checkbox[name=mail]').on('click', function () {
+
+				if ($(this).prop('checked')) {
+					// 让行添加CSS类
+					$(this).parents('tr').addClass('checked');
+				} else {
+					$(this).parents('tr').removeClass('checked');
+				}
+
+				if ($(':checkbox[name=mail]').length == getMailBoxCheckedNum()) {
+					$('#ctlBox').prop('checked', true);
+				} else {
+					$('#ctlBox').prop('checked', false);
+				}
+
+
+			});
+			//统计被选定的邮件复选框的数量
+			function getMailBoxCheckedNum() {
+				let count = 0;
+				let mailBoxEles = $(':checkbox[name=mail]');
+				//对象的遍历
+				$.each(mailBoxEles, function (index, obj) {
+					if ($(obj).prop('checked')) {
+						count++;
+					}
+				});
+				return count;
+			}
+
+		</script>
+	</form>
+</body>
+
+</html>

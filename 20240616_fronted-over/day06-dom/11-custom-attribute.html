@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body>
+	<p id="p" data-sku="3" data-author-name="aid2405">中华人民共和国</p>
+	<script>
+		let pEle = document.getElementById("p");
+		console.log(pEle.dataset.sku);
+		console.log(pEle.dataset.authorName);
+		pEle.dataset.sku = 6;
+		pEle.dataset.authorName = 'AID';
+		console.log(pEle.dataset.sku);
+		console.log(pEle.dataset.authorName);
+	</script>
+</body>
+
+</html>

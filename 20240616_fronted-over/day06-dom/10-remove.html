@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#container {
+			width: 960px;
+			margin: 0 auto;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		td {
+			padding: 10px;
+			border: 2px solid #ccc;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<table>
+			<tr>
+				<td>商品名称</td>
+				<td>商品数量</td>
+				<td>操作</td>
+			</tr>
+			<tr id="row1">
+				<td>A</td>
+				<td>1</td>
+				<td><a href="#" onclick="removeItem('row1')">删除</a></td>
+			</tr>
+			<tr id="row2">
+				<td>B</td>
+				<td>2</td>
+				<td><a href="#" onclick="removeItem('row2')">删除</a></td>
+			</tr>
+			<tr id="row3">
+				<td>C</td>
+				<td>3</td>
+				<td><a href="#" onclick="removeItem('row3')">删除</a></td>
+			</tr>
+			<tr id="row4">
+				<td>D</td>
+				<td>4</td>
+				<td><a href="#" onclick="removeItem('row4')">删除</a></td>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript">
+		function removeItem(id) {
+			//获取指定ID的对象
+			let rowEle = document.getElementById(id);
+
+			//row1的父对象.removeChild(row1对象)
+			rowEle.parentNode.removeChild(rowEle);
+		}
+	</script>
+</body>
+
+</html>

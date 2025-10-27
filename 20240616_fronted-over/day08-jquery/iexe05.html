@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/reset.css">
+    <script src="../jquery/jquery-3.7.1.js"></script>
+    <style>
+        #div1{
+            position: relative;
+            width: 590px;
+            border:1px solid #000;
+            margin: 0 auto;
+            height: 470px;
+            overflow: hidden;
+        }
+        #ul1{
+            position: absolute;
+            left: 15px;
+            bottom: 15px;
+        }
+        .li2{
+            float: left;
+            height: 12px;
+            width: 12px;
+            margin-right: 5px;
+            border-radius: 100%;
+            background-color: #ffffff;
+        }
+        .current{
+            height: 13px;
+            width: 13px;
+            background-color: #ff0000;
+            float: left;
+            margin-right: 5px;
+            border-radius: 100%;
+            border: 2px solid #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <ol id="ol1">
+            <li><img src="images/1.jpg"></li>
+            <li><img src="images/2.jpg"></li>
+            <li><img src="images/3.jpg"></li>
+            <li><img src="images/4.jpg"></li>
+            <li><img src="images/5.jpg"></li>
+            <li><img src="images/6.jpg"></li>
+        </ol>
+        <ul id="ul1"></ul>
+    </div>
+    <script>
+        let olJQ=$('#ol1').children();
+        let ulJQ=$('#ul1');
+        $('#ul1>li').first().addClass('current');
+        for(let n =0;n<=olJQ.children().length-1;n++){
+            ulJQ.append('<li class="li2"></li>')}
+        ulJQ.children().first().addClass('current');
+        ulJQ.children().mouseover(function(){
+            // olJQ.eq($(this).index()).css('display','block').siblings().css('display','none');                  
+            olJQ.eq($(this).index()).fadeIn().siblings().fadeOut();
+            $(this).addClass('current').siblings().removeClass('current');
+        })
+    </script>    
+</body>
+</html>

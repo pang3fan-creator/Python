@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/reset.css">
+    <script src="../jquery/jquery-3.7.1.js"></script>
+    <style>
+    div{
+        width:300px;
+        margin: 0 auto;
+        background-color: whitesmoke;
+        padding: 20px;
+        text-align: center;        
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="button" value="按钮1" id="1">
+        <input type="button" value="按钮2" id="2">
+    </div>
+    <script>
+        $('#1').click(function(){
+            let sum=0;
+            for(let i =0;i<=100;i++){
+                sum+=i;
+            }
+            console.log(sum)
+        })
+        $('#2').click(function(){
+            $('#1').trigger('click');
+        }
+
+        )
+    </script>
+</body>
+</html>

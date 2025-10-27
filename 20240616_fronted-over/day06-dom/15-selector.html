@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body>
+	<div>
+		<h1>123</h1>
+		<p>123</p>
+		<p>123</p>
+	</div>
+	<p>456</p>
+	<p id="p">456</p>
+	<p>456</p>
+	<ul>
+		<li class="a">A</li>
+		<li>B</li>
+		<li class="a">C</li>
+		<li class="a">D</li>
+	</ul>
+
+	<script>
+		//选取div下的所有子元素
+		var eles = document.querySelectorAll('div>*');
+		eles.forEach((ele) => {
+			ele.style.color = 'red';
+		});
+		///////////////////////////////////
+
+		//选取ID为p的元素
+		var pEle = document.querySelector('#p');
+		pEle.innerHTML = '中华人民共和国万岁';
+
+		//////////////////////////////////////
+		//选取第一个使用CSS类 -- a 的元素
+		var a = document.querySelector('.a');
+		a.innerHTML = '我变了哈';
+	</script>
+</body>
+
+</html>

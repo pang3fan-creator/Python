@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		console.log(typeof(null));
+		console.log(typeof(undefined));
+		///////////////////////////////
+		var obj1 = {}
+		console.log(typeof(obj1));
+		var obj2 = {
+			//属性
+			id:1,
+			username:'Tom',
+			//方法
+			say:function(){
+				console.log('我的ID是' + this.id)
+				console.log('Hello');
+			},
+			eat:function(){
+				this.say();
+			}
+		}
+		console.log(obj2.id);
+		console.log(obj2.username);
+		obj2.say()
+		obj2.eat();
+		//////////////////////////////////////////////
+
+
+		//三元运算符
+
+		var p = 5 > 20 ? 7 : 3;
+
+		console.log(p);
+
+		//////////////////////////////////////////////
+		console.log('空值合并运算符')
+		console.log(null ?? 5);
+		console.log(undefined ?? 2);
+		console.log(2 ?? 5);
+
+		
+
+	</script>
+</body>
+</html>

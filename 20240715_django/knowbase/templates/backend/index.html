@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知库管理平台/管理员/首页</title>
+    <link rel="stylesheet" href="{% static 'backend/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'backend/styles/layout.css' %}">
+    <script src="{% static 'backend/scripts/jquery-3.7.0.min.js' %}"></script>
+    <script>
+        $(function(){
+            $('.menu-item+ol').hide();
+            $('.menu-item').click(function(){
+                $(this).siblings('ol').slideToggle();
+               if($(this).find('span').eq(1).hasClass('icon-down')){
+                    $(this).find('span').eq(1).removeClass('icon-down').addClass('icon-up')
+               } else {
+                    $(this).find('span').eq(1).removeClass('icon-up').addClass('icon-down')
+               }
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="app">
+        <!-- 头部区域开始 -->
+        {% include 'backend/include/header.html' %}
+        <!-- 头部区域结束 -->
+        <!-- 侧边栏开始 -->
+        {% include 'backend/include/sidebar.html' %}
+        <!-- 侧边栏结束 -->
+        <!-- 内容区域开始 -->
+        <div id="content">
+            <div class="content">
+                <div class="container">
+                    <h1 class="heading">知库管理平台说明</h1>
+                    <p>知库管理平台是一个集成了多种常用计算机技术的网站，其中包括但不限于 Python、MySQL、HTML、CSS、jQuery、Django、Redis 和 AJAX 等。它为用户提供了一个方便的平台，以了解和学习这些技术，并为他们提供了实用的工具和资源，以便更好地应用这些技术。
+                    </p>
+                    <p>
+                        在知库管理平台中，用户可以找到有关这些技术的详细介绍，包括其基本概念、语法和用法。此外，该平台还提供了许多实用工具和资源，例如在线代码编辑器、代码示例、文档和教程等，以帮助用户更好地学习和应用这些技术。
+                        
+                        总之，知库管理平台是一个集成了多种计算机技术的网站，旨在为用户提供一个方便的平台，以了解和学习这些技术，并为他们提供实用的工具和资源。
+                    </p>
+                    <h1 class="heading">作者</h1>
+                    <p>会飞的猪、我是一棵小小草、懒猫爱睡觉、</p>
+                    <h1 class="heading">相关资源</h1>
+                    <p><a href="https://www.python.org/" target="_blank">Python官网</a></p>
+                    <p><a href="https://www.mysql.com/" target="_blank">MySQL官网</a></p>
+                    <p><a href="https://developer.mozilla.org/zh-CN/" target="_blank">MDN官网</a></p>
+                    <p><a href="https://www.djangoproject.com/" target="_blank">Django官网</a></p>
+                    <p><a href="https://jquery.com/" target="_blank">jQuery官网</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- 内容区域结束 -->
+    </div>
+</body>
+</html>

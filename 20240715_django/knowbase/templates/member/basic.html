@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'member/styles/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'member/styles/layout.css' %}" rel="stylesheet">
+    <title>AJAX基础</title>
+</head>
+<body>
+    <div id="header">
+        <h1 id="heading">AJAX基础</h1>
+    </div>
+    <div id="container">
+        <table class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th colspan="5">成员列表</th>
+            </tr>
+            <tr class="text-center">
+                <th>序号</th>
+                <th>用户名</th>
+                <th>性别</th>
+                <th>年龄</th>
+            </tr>
+            </thead>
+            <tbody id="member-list">
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            console.log('DOMContent Already Loaded.')
+        });
+    </script>
+</body>
+</html>

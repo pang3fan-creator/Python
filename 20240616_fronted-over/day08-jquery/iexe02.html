@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/reset.css">
+    <script src="../jquery/jquery-3.7.1.js"></script>
+    <style>
+        .c1{
+            color: aqua;
+        }
+        .c2{
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <p>我是段落</p>
+    <input type="button" value="按钮">   
+    <script>
+        $('input').click(function(){
+            $('p').addClass('c1 c2').css('fontStyle','italic')
+        })
+    </script> 
+</body>
+</html>

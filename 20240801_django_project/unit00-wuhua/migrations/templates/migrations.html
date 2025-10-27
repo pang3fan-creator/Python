@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<div style="width:800px;margin:0 auto;">
+	<p>基于安全的考虑，在进行删除分类操作时，无法直接删除存在对应新闻的类型</p>
+	<p>故先需要进行数据迁移操作，以保证数据的安全性</p>
+	<form method="post">
+		{% csrf_token %}
+		<table  width="100%" cellpadding="10"  border="1">
+			<tr>
+				<td>将<span style="color:red;font-weight: bold;padding:0 10px">{{ object.catename }}</span>类型的新闻迁到</td>
+				<td>
+					<select name="category_id">
+						{% for item in category%}
+							{% if item.pk != object.pk %}						
+								<option value="{{ item.pk }}">{{ item.catename }}</option>
+							{% endif %}
+						{% endfor %}
+					
+					
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="迁移"></td>
+			</tr>
+		</table>
+	</form>
+	</div>
+</body>
+</html>

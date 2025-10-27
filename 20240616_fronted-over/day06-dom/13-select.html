@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.cities {
+			width: 150px;
+		}
+	</style>
+</head>
+
+<body>
+	<form method="post">
+		<table width="800" align="center" cellpadding="20" cellspacing="0" border="1">
+			<tr>
+				<td width="300">省份</td>
+				<td>
+					<select name="provinces" id="provinces" onchange="changeCity()">
+						<option value="0">北京市</option>
+						<option value="1">上海市</option>
+						<option value="2">天津市</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>城市</td>
+				<td>
+					<select name="cities" id="cities" class="cities">
+						<option value="0">请选择...</option>
+
+					</select>
+				</td>
+			</tr>
+
+		</table>
+	</form>
+	<script type="text/javascript">
+		changeCity();
+
+		function changeCity() {
+			//获取省份列表框对象
+			let provincesEle = document.getElementById('provinces');
+			//获取选定的省份值
+			let provincesVal = provincesEle.value;
+			//获取城市列表框对象
+			let cityEle = document.getElementById('cities');
+			///////////////////////////////////////////////////////
+			cityEle.options.length = 1
+			///////////////////////////////////////////////////////
+			let citiesArray = [];
+			citiesArray[0] = [
+				{ 'name': '东城区', 'code': '10001' },
+				{ 'name': '西城区', 'code': '10003' },
+				{ 'name': '海淀区', 'code': '10009' },
+				{ 'name': '朝阳区', 'code': '10016' },
+				{ 'name': '丰台区', 'code': '10024' },
+
+
+			];
+			citiesArray[1] = [
+				{ 'name': '徐汇区', 'code': '20006' },
+				{ 'name': '浦东新区', 'code': '20019' },
+				{ 'name': '长宁区', 'code': '20085' },
+				{ 'name': '普陀区', 'code': '20069' },
+
+			];
+			citiesArray[2] = [
+				{ 'name': '和平区', 'code': '30001' },
+				{ 'name': '河东区', 'code': '30002' },
+				{ 'name': '河西区', 'code': '30003' },
+				{ 'name': '南开区', 'code': '30004' },
+				{ 'name': '河北区', 'code': '30005' },
+
+			];
+			//通过循环的方式向城市列表框添加选项
+			for (let n = 0; n < citiesArray[provincesVal].length; n++) {
+				//创建Option对象
+				var optEle = new Option(citiesArray[provincesVal][n].name, citiesArray[provincesVal][n].code);
+				//将	Option对象添加到城市列表框
+				cityEle.append(optEle);
+			}
+
+		}
+	</script>
+</body>
+
+</html>

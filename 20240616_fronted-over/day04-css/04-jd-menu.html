@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles/reset.css">
+	<style type="text/css">
+		.clearfix::after {
+			content: '.';
+			display: block;
+			clear: both;
+			height: 0;
+			overflow: hidden;
+		}
+
+		body {
+			font-size: 14px;
+			font-family: 微软雅黑;
+		}
+
+		#top-nav-outer {
+			height: 46px;
+			border-bottom: 1px solid #ddd;
+			background-color: #e3e4e5;
+		}
+
+		#top-nav-outer ul {
+			width: 1240px;
+			margin: 0 auto;
+		}
+
+		#top-nav-outer>ul>li {
+			position: relative;
+			float: left;
+			line-height: 46px;
+			margin: 0 10px;
+		}
+
+		.sub-menu {
+			position: absolute;
+			left: 0;
+			top: 47px;
+			background-color: #fff;
+			width: 180px;
+			padding: 0 15px;
+		}
+
+		.sub-menu li {
+			line-height: 32px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div id="top-nav-outer">
+		<ul class="clearfix">
+			<li>我的订单</li>
+			<li>
+				我的京东
+				<ol class="sub-menu">
+					<li>待处理订单</li>
+					<li>返修退换货</li>
+					<li>我的问答0</li>
+					<li>我的关注</li>
+					<li>降价商品2</li>
+				</ol>
+			</li>
+			<li>
+				企业采购
+				<ol class="sub-menu">
+					<li>待处理订单</li>
+					<li>返修退换货</li>
+					<li>我的问答0</li>
+					<li>我的关注</li>
+					<li>降价商品2</li>
+				</ol>
+			</li>
+			<li>商家服务 </li>
+			<li>网站导航</li>
+		</ul>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="">
+    <style> </style> -->
+</head>
+
+<body>
+    <p>
+        12345
+    </p>
+    <!-- <script src="scripts/common.js">
+        window.alert("hello world");
+    </script> -->
+    <!-- <script>
+        var i = 3;
+        i = 4;
+        let n = 6;
+        n = 7;
+        const M = 6;
+        window.alert(i);
+        window.alert(n);
+        window.alert(M);
+    </script> -->
+    <!-- <script type="text/javascript">
+        var username = 'Tom'
+        var password = "123456"
+        var info = `用户名：${username},密码：${password}`
+        console.log(username)
+        console.log(password)
+        console.log(info);
+        var str1 = 'He said:\"OK\"'
+        console.log(str1);
+        var str2 = "He said:\"OK\""
+    </script> -->
+    <!-- <script>
+        var i = 0b111111011;
+        console.log(i);
+        var a = new Number('2689.369');
+        var b = new Number(2689.369);
+        var c = 2689.369;
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        console.log(a + b);
+        console.log(b + c);
+        console.log(c == a);
+    </script> -->
+    <!-- <script>
+        var i = 3;
+        console.log(typeof (i))
+        var m = 6n;
+        console.log(typeof (m))
+        var n = new Number(m)
+        console.log(n)
+        console.log(typeof (n))
+        console.log(i + n)
+    </script> -->
+    <!-- <script>
+        console.log(3 + '4');//34
+        console.log('4' + 3);//43
+        console.log('4' - 3);//1
+        console.log(3 - '4');//-1
+        console.log(3 == '3');//true
+        console.log(3 === '3');//false
+        console.log(3 === 3);//true
+    </script> -->
+    <!-- <script>
+        var username;
+        console.log(username)//undefined
+        var password = undefined;
+        console.log(password)//undefined
+        function fun1(a) {
+            console.log(a)
+        }
+        function fun2() {
+            console.log('\t')
+        }
+        fun1()//undefined
+        console.log(fun2())//undefined
+    </script> -->
+    <!-- <script>
+        console.log(typeof (undefined))//undefined
+        console.log(typeof (null))//object        
+        let obj1 = {};
+        console.log(typeof (obj1));
+        var obj2 = {
+            id: 1,
+            username: "tom",
+            say: function () {
+                console.log('我的ID是' + this.id)
+            },
+            eat: function () {
+                this.say();
+            }
+        }
+        console.log(obj2.id);
+        console.log(obj2.username);
+        obj2.say()
+        obj2.eat();
+    </script> -->
+    <!-- <script>
+        var p = 5 < 20 ? 7 : 3;
+        console.log(p);
+        //-------------------------
+        console.log('空值合并运算符')
+        console.log(null ?? 5);
+        console.log(undefined ?? 2);
+        console.log(2 ?? 5);
+    </script> -->
+    <!-- <script>
+        var i = 5
+        console.log(i++);
+        console.log(i);
+        console.log(++i);
+        console.log(i);
+    </script> -->
+    <!-- <script>
+        var username = `tom`;
+        if (username.length < 2) {
+            console.log('用户名长度必须大于等于6位');
+        } else {
+            console.log(`用户名为${username}`);
+        }
+        var time = new Date();
+        console.log(time)
+        console.log(typeof (time))
+        var year = time.getFullYear();
+        console.log(year);
+        console.log(typeof (year))
+        var month = time.getMonth() + 1;
+        console.log(month);
+    </script> -->
+    <!-- <script>
+        var now = new Date();
+        var weekday = now.getDay();
+        switch (weekday) {
+            case 0:
+                console.log('星期日');
+                break;
+            case 1:
+                console.log('星期一');
+                break;
+            case 2:
+                console.log('星期二');
+            // break;
+            case 3:
+                console.log('星期三');
+            // break;
+            case 4:
+                console.log('星期四');
+            case 5:
+                console.log('星期五');
+            // break;
+            case 6:
+                console.log('星期六');
+                break;
+            default:
+                console.log('星期日');
+                break;
+        }
+    </script> -->
+    <!-- <script>
+        var sum = 0;
+        for (let n = 0; n <= 100; n++) {
+            sum += n;
+        }
+        console.log(sum);
+        for (let m = 0; m <= 10; m += 2) {
+            console.log(m)
+        }
+        for (let p = 10; p >= 2; p--) {
+            console.log(p);
+        }
+        var t = 10;
+        while (t <= 17) {
+            console.log(t);
+            t++;
+        }
+    </script> -->
+    <!-- <script type="text/javascript">
+        var users = ['Tom', 'Rose', 'Frank', 'Ben']
+        for (index in users) {
+            console.log(index)
+            console.log(users[index])
+        }
+        for (values of users) {
+            console.log(values)
+        }
+    </script> -->
+    <!-- <script>
+        var arrays = [
+            { id: 1, username: 'Tom' },
+            { id: 3, username: 'Rose' },
+            { id: 4, username: 'Ben' },
+            { id: 5, username: 'Frank' },
+            { id: 9, username: 'David' },
+        ]
+        for (values of arrays) {
+            console.log(`id:${values.id},username:${values.username}`)
+        }
+        for (let i = 0; i < arrays.length; i++) {
+            let values = arrays[i];
+            console.log(`id:${values.id},username:${values.username}`)
+        }
+
+        var obj = {
+            id: 3,
+            username: "Ben",
+            age: 26,
+            sex: true
+        }
+        for (k in obj) {
+            console.log(k + ":" + obj[k]);
+        }
+    </script> -->
+    <script>
+
+
+    </script>
+
+</body>
+
+</html>

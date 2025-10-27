@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		//内置对象  -- 日期对象
+		var now = new Date();
+		//年份
+		var year = now.getFullYear();
+		//////////////////////////////////
+		//月份(取值范围为0~11)
+		var month = now.getMonth() + 1;
+		//日期
+		var day = now.getDate();
+		//星期(0为星期日,依次类推)
+		var weekday = now.getDay();
+		console.log(year + '年');
+		console.log(month + '月');
+		console.log(day + '日');
+		console.log('星期' + weekday);
+		////////////////////////////////////////////
+		//输出中文的星期 
+		if (weekday == 0) {
+			console.log('星期日');
+		} else if (weekday == 1) {
+			console.log('星期一');
+		} else if (weekday == 2) {
+			console.log('星期二');
+		} else if (weekday == 3) {
+			console.log('星期三');
+		} else if (weekday == 4) {
+			console.log('星期四');
+		} else if (weekday == 5) {
+			console.log('星期五');
+		} else if (weekday == 6) {
+			console.log('星期六');
+		}
+	</script>
+</body>
+
+</html>

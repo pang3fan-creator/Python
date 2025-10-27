@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+{% include 'testing/include/header.html' with title=title %}
+<body>
+    <div class="container">
+        {% include 'testing/include/navigation.html' with title=title %}
+        <h2 class="second">限制字段(通过values()方法实现)</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+            </tr>
+            {% for item in field_by_values %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">限制字段(通过values_list()方法实现)</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+            </tr>
+            {% for item in field_by_values_list %}
+            <tr>
+                <td>{{ item.0 }}</td>
+                <td>{{ item.1 }}</td>
+                <td>{{ item.2 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">限制字段(通过only()方法实现)</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+            </tr>
+            {% for item in field_by_only %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">限制字段(为字段赋予别名)</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+            </tr>
+            {% for item in field_by_alias %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

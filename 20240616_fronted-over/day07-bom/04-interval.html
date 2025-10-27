@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#container {
+			width: 960px;
+			margin: 0 auto;
+			border: 1px solid #ccc;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<h1>用户注册许可协议</h1>
+		<p>....</p>
+		<p><input type="button" value="我同意(5)" disabled id="agree"></p>
+	</div>
+
+
+
+	<script type="text/javascript">
+		var i = 5;
+		let buttonEle = document.getElementById('agree');
+		var intervalId = window.setInterval(() => {
+			i--;
+			buttonEle.value = `我同意(${i})`;
+			if (i == 0) {
+				buttonEle.value = '我同意';
+				window.clearInterval(intervalId);
+				buttonEle.disabled = false;
+			}
+		}, 1000);
+
+		/////////////////////////////////////////////////
+
+		buttonEle.onclick = () => {
+			location.href = 'http://www.baidu.com';
+		}
+
+	</script>
+</body>
+
+</html>

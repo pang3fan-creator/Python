@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body>
+	<p><input type="button" value="我有事件" id="button"></p>
+	<p><input type="button" value="我也有事件" id="button2"></p>
+
+	<script type="text/javascript">
+		let buttonEle = document.getElementById('button');
+		buttonEle.onclick = () => {
+			let sum = 0;
+			for (let n = 0; n <= 100; n++) {
+				sum += n;
+			}
+			console.log(sum);
+		}
+		///////////////////////////////////////////
+
+		let buttonEle2 = document.getElementById('button2');
+
+		buttonEle2.addEventListener('click', () => {
+			console.log('Hello World');
+		});
+
+	</script>
+</body>
+
+</html>

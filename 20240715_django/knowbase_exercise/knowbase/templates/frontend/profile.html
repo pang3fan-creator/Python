@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'frontend/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/styles/profile.css' %}">
+    <script src="{% static 'frontend/scripts/jquery-3.7.0.min.js' %}"></script>
+    <style>
+        figure{
+            position: relative;
+        }
+        figure input[type=file]{
+            display: block;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* left: 50%; */
+            /* margin-left:-50px; */
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            display: none;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('#myfile').change(function(){
+                var readFile = new FileReader();
+                var mfile = $('#myfile')[0].files[0];
+                readFile.readAsDataURL(mfile);
+                readFile.onloadend = function(){
+                    var img = $('#avatar');
+                    img.attr('src',this.result);
+                }
+            });
+            $('#avatar').bind('click',function(){
+                $('#myfile').trigger('click')
+            });
+        });
+    </script>
+    <title>账号管理::知库管理平台</title>
+</head>
+<body>
+    <div class="wrapper">
+            <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="inner">
+                <header>
+                    <div class="close"><a href="/"></a></div>
+                    <div class="label">账号管理</div>
+                </header>
+                <figure>
+                    <img src="{{ MEDIA_URL|add:'frontend/avatar/unnamed.png' }}" alt="" id="avatar">
+                    <input type="file" name="myfile" id="myfile">
+                </figure>
+                <section class="clearfix">
+                    <div class="tips">用户名</div>
+                    <div class="cont">wuhua<span class="created_at">注册于:</span>2023-11-23 11:25</div>
+                </section>
+                <section class="clearfix">
+                    <div class="tips height38">昵称</div>
+                    <div class="cont">
+                        <input type="text" name="nickname" id="nickname" class="text-input" value="wuhua">
+                    </div>
+                </section>
+                <section class="clearfix">
+                    <div class="tips height38">旧密码</div>
+                    <div class="cont">
+                        <input type="password" name="oldpassword" id="oldpassword" class="text-input">
+                    </div>
+                </section>
+                <section class="clearfix">
+                    <div class="tips height38">新密码</div>
+                    <div class="cont">
+                        <input type="password" name="password" id="password" class="text-input">
+                    </div>
+                </section>
+                <section class="clearfix">
+                    <div class="tips height38">确认新密码</div>
+                    <div class="cont">
+                        <input type="password" name="password2" id="password2" class="text-input">
+                    </div>
+                </section>
+                <section class="clearfix">
+                    <div class="tips height38">邮箱</div>
+                    <div class="cont">
+                        <input type="text" name="email" id="email" class="text-input">
+                    </div>
+                </section>
+                <section class="clearfix no-border">
+                    <button type="submit" class="submit">确认修改</button>
+                </section>
+            </div>
+            </form>
+        </div>
+</body>
+</html>

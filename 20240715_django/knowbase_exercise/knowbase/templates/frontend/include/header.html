@@ -1,0 +1,25 @@
+<header>
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="/"></a></div>
+            <ul class="nav-menu clearfix">
+                <li><a href="/"   class="active" >全部分类</a></li>
+                {% for item in category %}
+                <li><a href="/index/{{ item.id }}/">{{ item.catename }}</a></li>
+                {% endfor %}
+               
+            </ul>
+            <div class="shortcut clearfix">
+                {% if not 'frontend' in request.session.keys %}
+                <a href="/register/" class="a">注册</a>
+                <a href="/login/" class="a">登录</a>
+                {% else %}
+                <a href="/profile" class="face"  title="{{ request.session.frontend.nickname }}">
+                    <img src="{{ MEDIA_URL|add:'frontend/avatar/'|add:request.session.frontend.face }}" alt="">
+                </a>
+                <a href="/logout/" class="logout">退出账号</a> 
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</header>

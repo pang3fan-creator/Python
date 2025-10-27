@@ -1,0 +1,11 @@
+bread,cream,milk,tea
+cake,cream,milk
+cake,milk,banana
+milk,cream
+bread,cake,milk
+bread,tea,banana,banana
+beer,milk,tea
+bread,tea,banana
+banana,cream,milk,cake
+bread,milk,tea
+banana,milk,tea,cake,cream

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	{% include 'testing/include/header.html' with title=title %}
+	<body>
+		<div class="container">
+			{% include 'testing/include/navigation.html' with title=title %}
+
+			{% if book %}
+			<div id="product-detail-wrapper" class="product-detail-wrapper center">
+				<div><img src="{{ MEDIA_URL|add:'testing/books/'|add:book.imageurl }}" alt="" /></div>
+				<div>{{ book.bookname }}</div>
+				<div>{{ book.sale_price }}</div>
+				<div>{{ book.publishing }}</div>
+				<div>{{ book.category }}</div>
+			</div>
+			{% else %}
+			
+			<div id="product-detail-wrapper" class="product-item-no-exists">
+				<div>对不起,记录不存在</div>
+			</div>
+			{% endif %}
+
+			
+		</div>
+	</body>
+</html>

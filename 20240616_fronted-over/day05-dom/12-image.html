@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<p><img src="images/1.jpg" id="image"></p>
+	<p><input type="button" value="换图片" onclick="changeImage()"></p>
+	<p><a href="http://www.baidu.com" id="anchor">百度</a></p>
+	<p><input type="button" value="修改链接" onclick="changeLink()"></p>
+	<script type="text/javascript">
+		function changeImage(){
+			//获取图像元素
+			let imageEle = document.getElementById("image");
+			//设置图像元素的属性
+			imageEle.src = 'images/2.jpg';
+		}
+		function changeLink(){
+			//获取元素
+			let anchorEle = document.getElementById("anchor");
+			//设置链接元素的属性
+			anchorEle.href = 'http://www.jd.com';
+			anchorEle.target = '_blank';
+			//设置链接元素的内容
+			anchorEle.innerText = '京东';
+		}
+	</script>
+</body>
+</html>

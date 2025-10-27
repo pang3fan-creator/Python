@@ -1,0 +1,30 @@
+*** Starting uWSGI 2.0.20 (64bit) on [Sat Aug 17 22:04:07 2024] ***
+compiled with version: 11.2.0 on 13 May 2022 13:47:18
+os: Linux-6.8.0-40-generic #40~22.04.3-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 30 17:30:19 UTC 2
+nodename: tedu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /mnt/hgfs/AID/aid-2405/5-month03-project/dadashop
+writing pidfile to uwsgi/uwsgi.pid
+detected binary path: /home/tarena/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/tarena/AID/aid-2405/5-month03-project/dadashop
+your processes number limit is 15172
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8001 fd 3
+Python version: 3.10.12 (main, Jul 29 2024, 16:56:48) [GCC 11.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x55917cc57770
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 268686 bytes (262 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x55917cc57770 pid: 7258 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 7258)
+spawned uWSGI worker 1 (pid: 7259, cores: 1)
+uwsgi_proto_uwsgi_parser(): Resource temporarily unavailable [proto/uwsgi.c line 40]

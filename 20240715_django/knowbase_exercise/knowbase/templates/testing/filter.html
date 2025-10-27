@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+{% include 'testing/include/header.html' with title=title %}
+<body>
+    <div class="container">
+        {% include 'testing/include/navigation.html' with title=title %}
+        <h2 class="second">查找第一条记录</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+            <tr>
+                <td>{{ first_object.id }}</td>
+                <td>{{ first_object.bookname }}</td>
+                <td>{{ first_object.sale_price }}</td>
+                <td>{{ first_object.publishing }}</td>
+                <td>{{ first_object.category }}</td>
+            </tr>
+        </table>
+        <h2 class="second">查找最后一条记录</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+            <tr>
+                <td>{{ last_object.id }}</td>
+                <td>{{ last_object.bookname }}</td>
+                <td>{{ last_object.sale_price }}</td>
+                <td>{{ last_object.publishing }}</td>
+                <td>{{ last_object.category }}</td>
+            </tr>
+        </table>
+        <h2 class="second">查找id号等于 36 的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+            <tr>
+                <!-- first()方法在模板中只能通过不带括号的形式进行调用 -->
+                <td>{{ filter_by_exact.first.id }}</td>
+                <td>{{ filter_by_exact.first.bookname }}</td>
+                <td>{{ filter_by_exact.first.sale_price }}</td>
+                <td>{{ filter_by_exact.first.publishing }}</td>
+                <td>{{ filter_by_exact.first.category }}</td>
+            </tr>
+            <tr>
+                <td>{{ filter_by_exact.0.id }}</td>
+                <td>{{ filter_by_exact.0.bookname }}</td>
+                <td>{{ filter_by_exact.0.sale_price }}</td>
+                <td>{{ filter_by_exact.0.publishing }}</td>
+                <td>{{ filter_by_exact.0.category }}</td>
+            </tr>
+        </table>
+        <h2 class="second">查找id号为6000的图书是否存在</h2>
+        <table class="table">
+            <tr>
+                <td>记录的是否存在</td>                
+            </tr>
+            
+            <tr>
+                
+                <td>{{ book_object_exists|yesno:'存在,不存在' }}</td>
+            </tr>
+            
+        </table>
+        <h2 class="second">查找id号小于 15 的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+            {% for item in filter_by_lt %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">查找价格大于 500 的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+            {% for item in filter_by_gt %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">查找id号为10，20，30 的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+            {% for item in filter_by_in %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">查找id号介于 40 ~ 50 之间的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+           {% for item in filter_by_range %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>        
+        <h2 class="second">查找书名包含 明朝 的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+            {% for item in filter_by_contains %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">查找书名以 中国 开头的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+           {% for item in filter_by_startswith %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">查找书名以 中国 开头且价格超过200(含)的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+           {% for item in filter_by_multiple %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">查找书名以 中国 结尾的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+            {% for item in filter_by_endswith %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">查找 销售价格超过成本价格200元 的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>售价</td>
+                <td>进价</td>                
+                <td>利润</td>
+            </tr>
+            {% for item in filter_by_f %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.cost_price }}</td>
+                <td>{{ item.profit }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+         <h2 class="second">查找 (图书名称以中国结尾) 或者 (分类为经典著作且价格超过200) 图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+            {% for item in filter_by_q %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">查找 ID为100的整倍数 的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+            {% for item in filter_by_devide %}
+            <tr>
+                <td>{{  item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2 class="second">查找 分类不是中国史、史家名著、地方史志、历史研究与评论、书法和心理学 的图书</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>名称</td>
+                <td>价格</td>
+                <td>出版社</td>
+                <td>类别</td>
+            </tr>
+            {% for item in filter_by_exclude %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.sale_price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

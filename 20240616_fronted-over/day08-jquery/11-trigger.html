@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="scripts/jquery-3.7.1.js"></script>
+</head>
+<body>
+	<input type="button" value="按钮1" id="button1">
+	<input type="button" value="按钮2" id="button2">	
+	<script type="text/javascript">
+		$('#button1').on('click',function(){
+			let sum = 0;
+			for(let n = 0;n<=100;n++){
+				sum +=n;
+			}
+			console.log(sum)
+		});
+
+		$('#button2').on('click',function(){
+			$('#button1').trigger('click');
+		})
+	</script>
+</body>
+</html>

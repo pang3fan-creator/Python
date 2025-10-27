@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIV居中方法大全</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .methods-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 20px;
+        }
+
+        .methods-sidebar {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .method-btn {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .method-btn:hover {
+            background: #2980b9;
+            transform: translateX(5px);
+        }
+
+        .method-btn.active {
+            background: #2c3e50;
+        }
+
+        .demo-area {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .visualization {
+            flex: 1;
+            background: #ecf0f1;
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .center-demo {
+            width: 200px;
+            height: 150px;
+            background: #3498db;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .center-demo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .code-container {
+            background: #2c3e50;
+            color: #ecf0f1;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+        }
+
+        .code-container pre {
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+
+        .method-content {
+            display: none;
+        }
+
+        .method-content.active {
+            display: block;
+        }
+
+        .flex-example {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .grid-example {
+            display: grid;
+            place-items: center;
+            height: 100%;
+        }
+
+        .position-example {
+            position: relative;
+            height: 100%;
+        }
+
+        .position-demo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .margin-example {
+            height: 100%;
+        }
+
+        .margin-demo {
+            margin: 50px auto;
+        }
+
+        .text-align-example {
+            text-align: center;
+            height: 100%;
+            padding-top: 50px;
+        }
+
+        .text-align-demo {
+            display: inline-block;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .methods-container {
+                grid-template-columns: 1fr;
+            }
+
+            .methods-sidebar {
+                order: 2;
+            }
+
+            .demo-area {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>DIV居中方法大全</h1>
+            <p class="description">在HTML/CSS中，有多种方法可以使DIV元素居中。下面展示了6种常用的居中技术，点击左侧菜单查看每种方法的实现。</p>
+        </header>
+
+        <div class="methods-container">
+            <div class="methods-sidebar">
+                <button class="method-btn active" data-method="flex">Flexbox居中</button>
+                <button class="method-btn" data-method="grid">Grid居中</button>
+                <button class="method-btn" data-method="position">绝对定位+Transform</button>
+                <button class="method-btn" data-method="margin">Auto Margin居中</button>
+                <button class="method-btn" data-method="text-align">Text-Align居中</button>
+                <button class="method-btn" data-method="table">Table-Cell居中</button>
+            </div>
+
+            <div class="demo-area">
+                <!-- Flexbox 方法 -->
+                <div class="method-content active" id="flex">
+                    <h2 class="demo-title">Flexbox 居中法</h2>
+                    <div class="visualization">
+                        <div class="flex-example">
+                            <div class="center-demo">使用Flexbox轻松居中</div>
+                        </div>
+                    </div>
+                    <div class="code-container">
+                        <pre>
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.child {
+    /* 子元素不需要特殊样式 */
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <!-- Grid 方法 -->
+                <div class="method-content" id="grid">
+                    <h2 class="demo-title">Grid 居中法</h2>
+                    <div class="visualization">
+                        <div class="grid-example">
+                            <div class="center-demo">使用Grid布局实现居中</div>
+                        </div>
+                    </div>
+                    <div class="code-container">
+                        <pre>
+.parent {
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+.child {
+    /* 子元素不需要特殊样式 */
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <!-- 绝对定位 + Transform 方法 -->
+                <div class="method-content" id="position">
+                    <h2 class="demo-title">绝对定位 + Transform 居中法</h2>
+                    <div class="visualization">
+                        <div class="position-example">
+                            <div class="center-demo position-demo">使用绝对定位和Transform实现居中</div>
+                        </div>
+                    </div>
+                    <div class="code-container">
+                        <pre>
+.parent {
+    position: relative;
+    height: 100%;
+}
+
+.child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <!-- Margin 方法 -->
+                <div class="method-content" id="margin">
+                    <h2 class="demo-title">Auto Margin 居中法</h2>
+                    <div class="visualization">
+                        <div class="margin-example">
+                            <div class="center-demo margin-demo">使用Auto Margin实现水平居中</div>
+                        </div>
+                    </div>
+                    <div class="code-container">
+                        <pre>
+.parent {
+    height: 100%;
+}
+
+.child {
+    width: 200px; /* 需要指定宽度 */
+    margin: 50px auto; /* 上下边距50px，左右自动 */
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <!-- Text-Align 方法 -->
+                <div class="method-content" id="text-align">
+                    <h2 class="demo-title">Text-Align 居中法</h2>
+                    <div class="visualization">
+                        <div class="text-align-example">
+                            <div class="center-demo text-align-demo">使用Text-Align实现行内块元素居中</div>
+                        </div>
+                    </div>
+                    <div class="code-container">
+                        <pre>
+.parent {
+    text-align: center;
+    height: 100%;
+    padding-top: 50px; /* 用于垂直方向上的粗略调整 */
+}
+
+.child {
+    display: inline-block;
+    text-align: left; /* 恢复内部文本对齐 */
+}
+                        </pre>
+                    </div>
+                </div>
+
+                <!-- Table-Cell 方法 -->
+                <div class="method-content" id="table">
+                    <h2 class="demo-title">Table-Cell 居中法（传统方法）</h2>
+                    <div class="visualization">
+                        <div style="display: table; width: 100%; height: 100%;">
+                            <div style="display: table-cell; vertical-align: middle; text-align: center;">
+                                <div class="center-demo" style="display: inline-block;">使用Table-Cell实现居中</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="code-container">
+                        <pre>
+.parent {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.child {
+    display: inline-block;
+}
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const methodButtons = document.querySelectorAll('.method-btn');
+            const methodContents = document.querySelectorAll('.method-content');
+
+            methodButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const method = this.getAttribute('data-method');
+
+                    // 更新按钮状态
+                    methodButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // 更新内容显示
+                    methodContents.forEach(content => content.classList.remove('active'));
+                    document.getElementById(method).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

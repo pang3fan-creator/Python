@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		//数组
+		var users = [
+			{ id: 1, 'username': 'Tom' },
+			{ id: 3, 'username': 'Rose' },
+			{ id: 4, 'username': 'Ben' },
+			{ id: 5, 'username': 'Frank' },
+			{ id: 9, 'username': 'David' },
+		]
+		for (let n = 0; n < users.length; n++) {
+			//对象
+			var user = users[n];
+			console.log(`用户ID:${user.id},用户名:${user.username}`);
+		}
+		///////////////////////////////////////////////////
+		//for ...in
+		for (let key in users) {
+			console.log(`用户ID:${users[key].id},用户名:${users[key].username}`);
+		}
+		////////////////////////////////////////////
+		//为什么提供了for...in循环 -- 只为for...in循环可以遍历对象或数组
+		var obj = {
+			id: 3,
+			username: "Ben",
+			age: 26,
+			sex: true
+		}
+		//请通过循环输出所有的属性名称和属性值
+		for (let key in obj) {
+			console.log(key + obj[key]);
+		}
+
+		//为什么又提供了for...of
+		//for...of用于遍历可迭代对象 -- 数组
+		for (let user of users) {
+			console.log(user.id + user.username);
+		}
+	</script>
+</body>
+
+</html>

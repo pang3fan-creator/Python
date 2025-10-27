@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/reset.css">
+    <script src="../jquery/jquery-3.7.1.min.js"></script>
+    <style>
+        #container {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        #container table {
+            width: 100%;
+            border-collapse: collapse;
+
+        }
+
+        #container td {
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <p><input type="radio" id="radio1">男</p>
+    <p><input type="button" value="点我点我" onclick="changeRadio()"></p>
+    <script>
+        let radioEle = document.getElementById('radio1')
+        function changeRadio() {
+            radioEle.checked = !(radioEle.checked == true)
+        }
+    </script> -->
+    <div id="container">
+        <form method="post">
+            <table>
+                <tr>
+                    <td><input type="checkbox" name="ctlBox" id="ctlBox" value="1" onclick="changeStatus()"></td>
+                    <td>邮件主题</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="mailBox" value="1"></td>
+                    <td>HTML笔记1</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="mailBox" value="2"></td>
+                    <td>HTML笔记2</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="mailBox" value="3"></td>
+                    <td>HTML笔记3</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="mailBox" value="4"></td>
+                    <td>HTML笔记4</td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script>
+        function changeStatus() {
+            let ctlBoxEle = document.getElementById('ctlBox');
+            let mailBoxEles = document.getElementsByName('mailBox');
+            mailBoxEles.forEach((ele) => {
+                ele.checked = ctlBoxEle.checked;
+            });
+        }
+    </script>
+</body>
+
+</html>

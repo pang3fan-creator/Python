@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+{% include 'inc/header.html' with title="循环" %}
+<body>
+    <div class="container">
+        <h1 class="heading">循环</h1>
+        <h2 class="secondary">四大名著</h2>
+        <ul class="list">
+            {% for item in fourclassics %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        <h2 class="secondary">空集</h2>
+        <table class="table">
+            <tr>
+                <td>序号</td>
+                <td>用户名</td>
+                <td>昵称</td>
+            </tr>
+            {% for item in user_objects %}
+            <tr>
+                <td>1</td>
+                <td>小野智深</td>
+                <td>懒猫爱觉觉</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">空列表</td>
+            </tr>
+            {% endfor %}
+        </table>        
+        <h2 class="secondary">图书列表</h2>
+        <table class="table">
+            <tr>
+                <th>序号</th>
+                <th>名称</th>
+                <th>价格</th>
+                <th>出版社</th>
+                <th>类别</th>
+                <th>日期</th>
+            </tr>
+            {% for item in book_objects %}
+            <tr class="primary">
+                <td>{{ forloop.counter }}</td>
+                <td>{{ item.bookname }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.publishing }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.issuingdate }}</td>
+            </tr>
+            {% endfor %}
+            <!--
+            <tr class="secondary">
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2023/11/09</td>
+            </tr>
+            <tr class="success">
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2023/11/09</td>
+            </tr>
+            -->
+        </table>
+        {% include 'inc/footer.html' %}    
+    </div>
+</body>
+</html>

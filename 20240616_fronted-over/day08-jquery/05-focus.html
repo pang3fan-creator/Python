@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles/reset.css">
+	<style type="text/css">
+		.clearfix::after{
+			content: '.';
+			display: block;
+			clear: both;
+			height: 0;
+			overflow: hidden;
+		}
+		#container{
+			position: relative;
+			width: 590px;
+			height: 470px;
+			margin: 0 auto;
+			border: 5px solid #f00;
+			overflow: hidden;
+		}
+		#focus_text{
+			position: absolute;
+			left: 20px;
+			bottom: 20px;
+		}
+		/*优先级为 100 + 1 = 101*/
+		#focus_text li{
+			float: left;
+			margin-right: 5px;
+			width:12px;
+			height:12px;			
+			border-radius: 100%;
+			background: #fff;
+		}
+		/*优先级 111*/
+		#focus_text li.current{
+			background: #f00;
+		}
+	</style>
+</head>
+<body>	
+	<div id="container">
+		<ul id="focus_image">
+			<li><img src="images/6.jpg"></li>
+			<li><img src="images/2.jpg"></li>
+			<li><img src="images/3.jpg"></li>
+			<li><img src="images/4.jpg"></li>
+			<li><img src="images/1.jpg"></li>
+			<li><img src="images/5.jpg"></li>
+		</ul>
+		<ol id="focus_text" class="clearfix">			
+		</ol>
+	</div>
+	<script src="scripts/jquery-3.7.1.js"></script>
+	<script type="text/javascript">
+		/////////////////////////////////////////////////////
+
+		//根据图片列表项的数量动态来添加文本列表项
+		let m = $('#focus_image > li').length;
+
+		for(let i = 0;i < m; i++){
+			$('#focus_text').append('<li></li>');
+		}
+
+		//第一个文本列表项添加current类
+		$('#focus_text > li').first().addClass('current');
+
+		//////////////////////////////////////////////////////
+		//除了第一个LI外，其他的都隐藏
+		$('#focus_image > li').not(':first').css('display','none');
+		//单击数字文本
+		$('#focus_text > li').on('mouseover',function(){		
+			//当前文本列表项的索引值 
+			let n = $(this).index();
+			//控制图表列表中当前索引值的列表项显示，其他的列表项隐藏
+			$('#focus_image > li').eq(n).fadeIn().siblings().fadeOut();
+
+			//为当前列表文本项添加current类，其他的列表项删除current类
+			$(this).addClass('current').siblings().removeClass('current');
+		});
+	</script>
+</body>
+</html>

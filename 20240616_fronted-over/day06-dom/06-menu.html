@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.clearfix::after {
+			content: '.';
+			display: block;
+			clear: both;
+			height: 0;
+			overflow: hidden;
+		}
+
+		body,
+		p,
+		div,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		ul,
+		ol,
+		li {
+			margin: 0;
+			padding: 0;
+		}
+
+		ul,
+		ol {
+			list-style: none;
+		}
+
+		a {
+			text-decoration: none;
+			color: #000;
+		}
+
+		#menu-wrapper {
+			width: 1240px;
+			margin: 0 auto;
+		}
+
+		#menu-container {
+			height: 46px;
+			background: #E92C4D;
+		}
+
+		#menu-container>ul>li {
+			float: left;
+			font-size: 16px;
+			line-height: 46px;
+			color: #fff;
+			padding: 0 10px;
+			position: relative;
+		}
+
+		.sub-menu {
+			position: absolute;
+			top: 46px;
+			left: 0;
+			color: #000;
+			width: 160px;
+			background: #ff0;
+		}
+
+		.sub-menu li {
+			line-height: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="menu-container">
+		<ul id="menu-wrapper" class="clearfix">
+			<li>我的京东</li>
+			<li onmouseover="showSubMenu(this)" onmouseout="hideSubMenu(this)">
+				京东采购
+				<ol class="sub-menu" style="display:none;">
+					<li>京东采购子菜单1</li>
+					<li>京东采购子菜单2</li>
+					<li>京东采购子菜单3</li>
+					<li>京东采购子菜单4</li>
+					<li>京东采购子菜单5</li>
+					<li>京东采购子菜单6</li>
+				</ol>
+			</li>
+			<li onmouseover="showSubMenu(this)" onmouseout="hideSubMenu(this)">
+				商家服务
+				<ol class="sub-menu" style="display: none;">
+					<li>商家服务子菜单1</li>
+					<li>商家服务子菜单1</li>
+					<li>商家服务子菜单1</li>
+					<li>商家服务子菜单1</li>
+					<li>商家服务子菜单1</li>
+				</ol>
+			</li>
+		</ul>
+	</div>
+	<!-- <script type="text/javascript">
+		//显示子菜单
+		function showSubMenu(obj) {
+			//让当前对象的范围内使用.sub-menu类的第一个元素显示
+			obj.getElementsByClassName('sub-menu').item(0).style.display = 'block';
+		}
+
+		//隐藏子菜单
+		function hideSubMenu(obj) {
+			obj.getElementsByClassName('sub-menu')[0].style.display = 'none';
+		}
+	</script> -->
+</body>
+
+</html>

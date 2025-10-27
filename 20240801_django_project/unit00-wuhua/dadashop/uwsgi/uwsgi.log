@@ -1,0 +1,324 @@
+*** Starting uWSGI 2.0.20 (64bit) on [Sat Aug 17 15:24:39 2024] ***
+compiled with version: 11.2.0 on 13 May 2022 13:47:18
+os: Linux-6.8.0-40-generic #40~22.04.3-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 30 17:30:19 UTC 2
+nodename: tedu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /mnt/hgfs/AID/month03/04-Project/unit11/dadashop
+writing pidfile to uwsgi/uwsgi.pid
+detected binary path: /home/tarena/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/tarena/AID/month03/04-Project/unit11/dadashop
+your processes number limit is 31276
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (0.0.0.0:8000).
+bind(): Address already in use [core/socket.c line 769]
+*** Starting uWSGI 2.0.20 (64bit) on [Sat Aug 17 15:36:30 2024] ***
+compiled with version: 11.2.0 on 13 May 2022 13:47:18
+os: Linux-6.8.0-40-generic #40~22.04.3-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 30 17:30:19 UTC 2
+nodename: tedu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /mnt/hgfs/AID/month03/04-Project/unit11/dadashop
+writing pidfile to uwsgi/uwsgi.pid
+detected binary path: /home/tarena/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/tarena/AID/month03/04-Project/unit11/dadashop
+your processes number limit is 31276
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (0.0.0.0:8000).
+bind(): Address already in use [core/socket.c line 769]
+*** Starting uWSGI 2.0.20 (64bit) on [Sat Aug 17 15:40:14 2024] ***
+compiled with version: 11.2.0 on 13 May 2022 13:47:18
+os: Linux-6.8.0-40-generic #40~22.04.3-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 30 17:30:19 UTC 2
+nodename: tedu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /mnt/hgfs/AID/month03/04-Project/unit11/dadashop
+writing pidfile to uwsgi/uwsgi.pid
+detected binary path: /home/tarena/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/tarena/AID/month03/04-Project/unit11/dadashop
+your processes number limit is 31276
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:8000 fd 3
+Python version: 3.10.12 (main, Jul 29 2024, 16:56:48) [GCC 11.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5e991de0c680
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 145808 bytes (142 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x5e991de0c680 pid: 16040 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 16040)
+spawned uWSGI worker 1 (pid: 16042, cores: 1)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 1/1] 127.0.0.1 () {52 vars in 965 bytes} [Sat Aug 17 15:55:38 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 0 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 16042|app: 0|req: 2/2] 127.0.0.1 () {48 vars in 821 bytes} [Sat Aug 17 15:55:35 2024] GET /favicon.ico => generated 2675 bytes in 12 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 3/3] 127.0.0.1 () {48 vars in 871 bytes} [Sat Aug 17 15:55:37 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 6 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 4/4] 127.0.0.1 () {48 vars in 871 bytes} [Sat Aug 17 15:55:41 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 6 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 5/5] 127.0.0.1 () {48 vars in 871 bytes} [Sat Aug 17 15:55:42 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 11 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 6/6] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:48 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 9 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 7/7] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:49 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 6 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 8/8] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:49 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 6 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 9/9] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:49 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 4 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 10/10] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:49 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 8 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 11/11] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:49 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 7 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 12/12] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:50 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 9 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 13/13] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:50 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 10 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 14/14] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:50 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 7 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 15/15] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:50 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 9 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 16/16] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:50 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 7 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 17/17] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:50 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 5 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 18/18] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 15:55:50 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 12 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /dadashop/templates/index.html
+[pid: 16042|app: 0|req: 19/19] 127.0.0.1 () {48 vars in 871 bytes} [Sat Aug 17 16:01:24 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 6 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+*** Starting uWSGI 2.0.20 (64bit) on [Sat Aug 17 16:04:12 2024] ***
+compiled with version: 11.2.0 on 13 May 2022 13:47:18
+os: Linux-6.8.0-40-generic #40~22.04.3-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 30 17:30:19 UTC 2
+nodename: tedu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /mnt/hgfs/AID/month03/04-Project/unit11/dadashop
+writing pidfile to uwsgi/uwsgi.pid
+detected binary path: /home/tarena/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/tarena/AID/month03/04-Project/unit11/dadashop
+your processes number limit is 31276
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:8000 fd 3
+Python version: 3.10.12 (main, Jul 29 2024, 16:56:48) [GCC 11.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5accfe41a6c0
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 268686 bytes (262 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x5accfe41a6c0 pid: 16627 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 16627)
+spawned uWSGI worker 1 (pid: 16628, cores: 1)
+Not Found: /dadashop/templates/index.html
+[pid: 16628|app: 0|req: 1/1] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 16:04:15 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 257 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+*** Starting uWSGI 2.0.20 (64bit) on [Sat Aug 17 16:12:19 2024] ***
+compiled with version: 11.2.0 on 13 May 2022 13:47:18
+os: Linux-6.8.0-40-generic #40~22.04.3-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 30 17:30:19 UTC 2
+nodename: tedu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /mnt/hgfs/AID/month03/04-Project/unit11/dadashop
+writing pidfile to uwsgi/uwsgi.pid
+detected binary path: /home/tarena/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/tarena/AID/month03/04-Project/unit11/dadashop
+your processes number limit is 31276
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:8000 fd 3
+Python version: 3.10.12 (main, Jul 29 2024, 16:56:48) [GCC 11.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5c12a572d700
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 268686 bytes (262 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x5c12a572d700 pid: 16907 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 16907)
+spawned uWSGI worker 1 (pid: 16908, cores: 1)
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+Not Found: /dadashop/templates/index.html
+[pid: 16908|app: 0|req: 1/1] 127.0.0.1 () {52 vars in 965 bytes} [Sat Aug 17 16:32:31 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 282 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 16908|app: 0|req: 2/2] 127.0.0.1 () {48 vars in 821 bytes} [Sat Aug 17 16:32:31 2024] GET /favicon.ico => generated 2675 bytes in 10 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+Not Found: /dadashop/templates/index.html
+[pid: 16908|app: 0|req: 3/3] 127.0.0.1 () {50 vars in 890 bytes} [Sat Aug 17 16:33:16 2024] GET /dadashop/templates/index.html => generated 2729 bytes in 5 msecs (HTTP/1.1 404) 6 headers in 173 bytes (1 switches on core 0)
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+*** Starting uWSGI 2.0.20 (64bit) on [Sat Aug 17 16:38:50 2024] ***
+compiled with version: 11.2.0 on 13 May 2022 13:47:18
+os: Linux-6.8.0-40-generic #40~22.04.3-Ubuntu SMP PREEMPT_DYNAMIC Tue Jul 30 17:30:19 UTC 2
+nodename: tedu
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /mnt/hgfs/AID/month03/04-Project/unit11/dadashop
+writing pidfile to uwsgi/uwsgi.pid
+detected binary path: /home/tarena/.local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /home/tarena/AID/month03/04-Project/unit11/dadashop
+your processes number limit is 31276
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:8000 fd 3
+Python version: 3.10.12 (main, Jul 29 2024, 16:56:48) [GCC 11.4.0]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x5d23266eb720
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 268686 bytes (262 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5d23266eb720 pid: 18102 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 18102)
+spawned uWSGI worker 1 (pid: 18103, cores: 1)
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+[pid: 18103|app: 0|req: 1/1] 127.0.0.1 () {50 vars in 848 bytes} [Sat Aug 17 16:42:38 2024] GET /v1/goods => generated 143 bytes in 362 msecs (HTTP/1.1 400) 4 headers in 130 bytes (1 switches on core 0)
+[pid: 18103|app: 0|req: 2/2] 127.0.0.1 () {50 vars in 858 bytes} [Sat Aug 17 16:42:51 2024] GET /v1/uses/login => generated 143 bytes in 28 msecs (HTTP/1.1 400) 4 headers in 130 bytes (1 switches on core 0)
+[pid: 18103|app: 0|req: 3/3] 127.0.0.1 () {48 vars in 839 bytes} [Sat Aug 17 16:43:36 2024] GET /v1/uses/login => generated 143 bytes in 13 msecs (HTTP/1.1 400) 4 headers in 130 bytes (1 switches on core 0)
+[pid: 18103|app: 0|req: 4/4] 127.0.0.1 () {48 vars in 839 bytes} [Sat Aug 17 16:43:36 2024] GET /v1/uses/login => generated 143 bytes in 18 msecs (HTTP/1.1 400) 4 headers in 130 bytes (1 switches on core 0)
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+[pid: 18103|app: 0|req: 5/5] 127.0.0.1 () {50 vars in 854 bytes} [Sat Aug 17 16:44:00 2024] GET /v1/catalogs => generated 143 bytes in 29 msecs (HTTP/1.1 400) 4 headers in 130 bytes (1 switches on core 0)
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+uwsgi_proto_uwsgi_parser(): Success [proto/uwsgi.c line 40]
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.

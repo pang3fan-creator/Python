@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知库管理平台/管理员/首页</title>
+    <link rel="stylesheet" href="{% static 'backend/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'backend/styles/layout.css' %}">
+    <script src="{% static 'backend/scripts/jquery-3.7.0.min.js' %}"></script>
+    <script>
+        $(function(){
+            $('.menu-item+ol').hide();
+            $('.menu-item').click(function(){
+                $(this).siblings('ol').slideToggle();
+               if($(this).find('span').eq(1).hasClass('icon-down')){
+                    $(this).find('span').eq(1).removeClass('icon-down').addClass('icon-up')
+               } else {
+                    $(this).find('span').eq(1).removeClass('icon-up').addClass('icon-down')
+               }
+            });
+            ///////////////////////////////////////////
+            //表单的submit事件，将在提交表单时触发,如果返回值为false，则表单不提交
+            $('#form').on('submit',function(){    
+                let catename = $('#catename').val();
+                let sort_order = $('#sort_order').val();
+                if(catename.length == 0 || sort_order.length == 0){
+                    return false;
+                } else {
+                    return true;
+                }
+            })
+            ///////////////////////////////////////////
+        })
+    </script>
+</head>
+<body>
+    <div id="app">
+        <!-- 头部区域开始 -->
+        {% include 'backend/include/header.html' %}
+        <!-- 头部区域结束 -->
+        <!-- 侧边栏开始 -->
+        {% include 'backend/include/sidebar.html' %}
+        <!-- 侧边栏结束 -->
+        <!-- 内容区域开始 -->
+        <div id="content">
+            <div class="content">
+                <div class="container">
+                    <h1 class="heading">添加分类</h1>
+                    <form method="post" enctype="multipart/form-data" class="form-box" action="/backend/category/post/" id="form">
+                        {% csrf_token %}
+                        <div class="form-item">
+                            <label class="form-item-label">分类名称</label>
+                            <div class="form-item-content">
+                                <input type="text" name="catename" class="input-inner" id="catename">
+                                <span class="message">
+                                    <i class="message-icon error"></i>
+                                    对不起，分类名称已经存在
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <label class="form-item-label">分类排序</label>
+                            <div class="form-item-content">
+                                <input type="text" name="sort_order" class="input-inner" value="0" id="sort_order">
+                                <span class="message">
+                                    <i class="message-icon info"></i>
+                                   数字越大，排名越靠前
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <input type="submit" value="提交表单" class="button primary">
+                        </div>
+                    </form>                  
+                </div>
+            </div>
+        </div>
+        <!-- 内容区域结束 -->
+    </div>
+</body>
+</html>

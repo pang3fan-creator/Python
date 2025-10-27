@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<table cellpadding="10" cellspacing ="0" border="1" align="center" width="1000">
+		<tr>
+			<td>11</td>
+			<td>11</td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>11</td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>11</td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>11</td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>11</td>
+		</tr>
+	</table>
+	<script src="scripts/jquery-3.7.1.js"></script>
+	<script type="text/javascript">
+		$('tr').first().css('color','red');
+		$('tr').last().css('color','green');
+		$('tr').odd().css('font-style','italic');
+		$('tr').even().css('font-weight','bold');
+		$('tr').slice(2,4).css('text-decoration','underline overline line-through');
+		// $('tr').eq(1).css('font-size','40px');
+		// $('tr').not(':odd').css('font-family','华文行楷');
+	</script>
+</body>
+</html>

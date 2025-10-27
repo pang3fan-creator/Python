@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AJAX</title>
+        <link href="{% static 'member/styles/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'member/styles/layout.css' %}" rel="stylesheet">
+        <script src="{% static 'member/scripts/jquery-3.7.0.min.js' %}"></script>
+        <script src="{% static 'member/scripts/bootstrap.bundle.min.js' %}"></script>
+        <script>
+        $(function(){            
+            var csrftoken = "...";
+            // 1.DOM 加载完毕之后从服务器获取用户列表信息
+            $.get('/member/lists/',function(data){
+                for(let n = 0;n<data.length;n++){                    
+                        $('#member-list').append(`<tr class="text-center" id="row_${data[n].id}">
+                            <td>${n+1}</td>
+                            <td>${data[n].username}</td>
+                            <td>${data[n].sex * 1 ?'女':'男'}</td>
+                            <td>${data[n].age}</td>
+                            <td>
+                                <a href="#" class="icon-modify" data-id="${data[n].id}"></a>
+                                <a href="#" class="icon-remove" data-id="${data[n].id}"></a>
+                            </td>
+                        </tr>`);
+                }
+            })
+            // 2.单击"添加成员"链接时显示模态框
+            $('#createMember').click(function(){
+                $('#addModal').modal('show');
+            });
+            
+            //3.单击"确认添加成员"按钮时的动作
+            $('#add-confirm').click(function(){
+                //1. 隐藏模态框
+                $('#addModal').modal('hide');
+                //2.获取出数据
+                let username = $('#add-username').val()
+                let password = $('#add-password').val()
+                let password2 = $('#add-password2').val()
+                let age = $('#add-age').val()
+                let sex = $('#add-sex').val()               
+                //3.以数据以POST方式提交到服务器
+                $.post('/member/admin/','username=' + username + '&password=' + password + '&age=' + age + '&sex=' + sex + '&password2=' + password2+ '&csrfmiddlewaretoken=' + '{{ csrf_token }}',function(obj){
+                    
+                    //获取tbody中包含行数，以决定新增行的行号
+
+                    let n = $('#member-list > tr').length
+                    
+
+                    $('#member-list').append(`<tr class="text-center" id="row_${obj.id}">
+                                    <td>${++n}</td>
+                                    <td>${obj.username}</td>
+                                    <td>${obj.sex * 1?'女':'男'}</td>
+                                    <td>${obj.age}</td>
+                                    <td>
+                                        <a href="#" class="icon-modify" data-id="${obj.id}"></a>
+                                        <a href="#" class="icon-remove" data-id="${obj.id}"></a>
+                                    </td>
+                                </tr>`);
+                })
+            });
+            // 3.单击修改图标链接时显示模态框
+            $('#member-list').on('click','.icon-modify',function(){
+                // 获取当前要编辑记录的ID号(通过自定义属性来实现)
+                let id = $(this).data('id');
+                $.get('/member/admin/' + id + '/',function(obj){
+
+                    $('#edit-username').val(obj.username)
+
+                    $('#edit-sex>option[value=' +  (obj.sex * 1)  +']').prop('selected',true)
+
+                    $('#edit-age>option[value=' +  obj.age +']').prop('selected',true)
+
+                });
+                // 显示模态框
+                $('#editModal').modal('show');
+
+                // 设置编辑按钮的自定义属性值为当前要编辑记录的ID
+                $('#edit-confirm').data('id',id)
+
+            });
+            // 4.单击"确认修改成员"按钮时的动作
+            $('#edit-confirm').click(function(){
+
+                //获取当前要编辑记录的ID，以传递给AJAX请求的服务器URL地址 
+                let id = $('#edit-confirm').data('id')
+
+                // 获取表单控件的提交值
+                let username = $('#edit-username').val();
+                let age = $('#edit-age').val();
+                let sex = $('#edit-sex').val();
+
+                // 发送PUT类型的AJAX请求
+
+                let obj = {username,age,sex}
+
+                $.ajax({
+                    url:'/member/admin/' + id + '/',
+                    method:'PUT',
+                    data:JSON.stringify(obj),
+                    headers:{
+                        'x-csrftoken':'{{ csrf_token}}'
+                    },
+                    success:function(res){
+                        //修改刚刚编辑的那条数据在页面的显示结果
+                        let rowEle = $('#row_' + res.data.id);
+                        rowEle.children('td').eq(1).text(res.data.username);
+                        rowEle.children('td').eq(2).text(res.data.sex * 1 ? '女' : '男');
+                        rowEle.children('td').eq(3).text(res.data.age);
+                    }
+                })
+
+                // 隐藏模态框
+                $('#editModal').modal('hide');
+            });
+            // 5.单击删除图标链接时的动作
+            $('#member-list').on('click','.icon-remove',function(){
+
+                //获取出当前要删除的记录的ID ******
+                let id = $(this).data('id')   
+
+                // 显示模态框
+                $('#deleteModal').modal('show');
+
+                // 修改删除按钮的自定义属性值为当前删除记录的ID号******
+                $('#delete-confirm').data('id',id)
+
+            });
+            //6.单击"确认删除成员"按钮时的动作
+            $('#delete-confirm').click(function(){
+                // 隐藏模态框
+                $('#deleteModal').modal('hide');
+
+                //1.要知道要删除的哪一条记录******
+                let id = $('#delete-confirm').data('id')
+
+                //2.现在要向服务器发送DELETE类型的请求
+
+                $.ajax({
+                    url:'/member/admin/' + id + '/',                    
+                    method:'delete',
+                    // headers:{
+                    //     'x-csrftoken':'{{ csrf_token }}',
+                    //     'authorization':'a.b.c'
+                    // },
+                    beforeSend:function(xhr){
+                        xhr.setRequestHeader('x-csrftoken','{{ csrf_token}}')
+                        xhr.setRequestHeader('authorization','1.2.3')
+                    },
+                    success:function(res){
+                        if (res.status == 200) {
+                            $("#row_" + id).remove();
+                            //重新为所有的行的第一个单元格进行赋值
+                            $('#member-list > tr').each(function(index,item){
+                                $(item).children('td').eq(0).text(++index);
+                            });
+                        }
+                    }
+                })
+
+
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <!-- 头部开始 -->
+        <div id="header">
+            <h1 id="heading">AJAX实现成员管理功能</h1>
+        </div>
+        <!-- 头部结束 -->
+        <!-- 正文开始 -->
+        <div id="container">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="5"><a class="text-danger text-decoration-none" href="#" id="createMember">添加成员</a></th>
+                    </tr>
+                    <tr class="text-center">
+                        <th>序号</th>
+                        <th>用户名</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="member-list">                   
+                </tbody>
+            </table>
+        </div>
+        <!-- 正文结束 -->
+        <!-- 添加模态框开始 -->
+        <div class="modal" id="addModal">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark text-light">
+                        <h6 class="modal-title">添加成员</h6>
+                        <button class="close" data-dismiss="modal" type="button">
+                        <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <input autocomplete="off" class="form-control" id="add-username" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>密码</label>
+                            <input autocomplete="off" class="form-control" id="add-password" type="password">
+                        </div>
+                        <div class="form-group">
+                            <label>确认密码</label>
+                            <input autocomplete="off" class="form-control" id="add-password2" type="password">
+                        </div>
+                        <div class="form-group">
+                            <label>性别</label>
+                            <select class="form-control" id="add-sex">
+                                <option value="0">男</option>
+                                <option value="1">女</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>年龄</label>
+                            <select class="form-control" id="add-age">
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="add-confirm" type="button">确认</button>
+                        <button class="btn btn-secondary" data-dismiss="modal" type="button">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 添加模态框结束 -->
+        <!-- 编辑模态框开始 -->
+        <div class="modal" id="editModal">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark text-light">
+                        <h6 class="modal-title">编辑成员</h6>
+                        <button class="close" data-dismiss="modal" type="button">
+                        <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>用户名</label>
+                            <input autocomplete="off" class="form-control" id="edit-username" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>密码</label>
+                            <input autocomplete="off" class="form-control" id="edit-password" type="password">
+                        </div>
+                        <div class="form-group">
+                            <label>确认密码</label>
+                            <input autocomplete="off" class="form-control" id="edit-password2" type="password">
+                        </div>
+                        <div class="form-group">
+                            <label>性别</label>
+                            <select class="form-control" id="edit-sex">
+                                <option value="0">男</option>
+                                <option value="1">女</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>年龄</label>
+                            <select class="form-control" id="edit-age">
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-id="1" id="edit-confirm" type="button">确认</button>
+                        <button class="btn btn-secondary" data-dismiss="modal" type="button">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 编辑模态框结束 -->
+        <!-- 询问删除模态框开始 -->
+        <div class="modal fade" id="deleteModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title">删除成员</h6>
+                        <button class="close" data-dismiss="modal" type="button">
+                        <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        确定要删除该成员信息吗？
+                        <p style="margin-top:15px;font-size:14px;color:#900;">删除后将无法恢复</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" type="button" data-id="1" id="delete-confirm">确认</button>
+                        <button class="btn btn-secondary" data-dismiss="modal" type="button">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 询问删除模态框结束 -->
+    </body>
+
+</html>

@@ -1,0 +1,48 @@
+html,body,p,div,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,form,input,select,table,tr,td,th{
+	margin: 0;
+	padding: 0;
+}
+
+ul,ol{
+	list-style: none;
+}
+
+a{
+	text-decoration: none;
+	color:#000;
+}
+
+b,strong,th{
+	font-weight: normal;
+}
+
+i,em{
+	font-style: normal;
+}
+
+s,strike,del,u{
+	text-decoration: none;
+}
+
+th{
+	text-align: left;
+}
+
+img{
+	border: none;
+}
+
+table{
+	border-collapse:collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+
+
+
+
+

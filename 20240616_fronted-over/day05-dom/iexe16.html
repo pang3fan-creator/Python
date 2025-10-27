@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css">
+        #container {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        #container table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #container td {
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 10px;
+            text-decoration: none;
+            color: #fff;
+            background: #900;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <form method="post" id="form">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <a href="#" id="delete" disabled class="button" onclick="submitForm('1')">彻底删除</a>
+                        <a href="#" id="recycle" disabled class="button" onclick="submitForm('2')">放入回收站</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="ctlBox" id="ctlBox" value="1" onclick="controlMailBoxStatus()">
+                    </td>
+                    <td>邮件主题</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="mailBox" value="1" onclick="controlCtlBoxStatus()"></td>
+                    <td>HTML笔记1</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="mailBox" value="2" onclick="controlCtlBoxStatus()"></td>
+                    <td>HTML笔记2</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="mailBox" value="3" onclick="controlCtlBoxStatus()"></td>
+                    <td>HTML笔记3</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="mailBox" value="4" onclick="controlCtlBoxStatus()"></td>
+                    <td>HTML笔记4</td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script type="text/javascript">
+
+        function submitForm(type) {
+            let formEle = document.getElementById('form');
+            console.log(typeof (type));
+            if (type == '1') {
+                formEle.action = 'http://www.baidu.com';
+            }
+            if (type == '2') {
+                formEle.action = 'http://www.jd.com';
+            }
+            //调用表单对象submit()方法，以提交表单
+            formEle.submit();
+        }
+
+        function controlMailBoxStatus() {
+            // 获取控制复选框对象
+            let ctlBoxEle = document.getElementById('ctlBox');
+            // 获取所有名称为mailBox的复选框 -- 返回值的类型为NodeList
+            let mailBoxEles = document.getElementsByName('mailBox');
+            // 遍历NodeList对象,其中ele代表的组成当前NodeList的每一个成员
+            mailBoxEles.forEach((ele) => {
+                //让每一个成员的状态与控制复选框的状态相同
+                ele.checked = ctlBoxEle.checked;
+            });
+            //调用改变按钮状态的函数
+            controlButtonStatus();
+        }
+
+        // 改变控制复选框状态
+        function controlCtlBoxStatus() {
+            //如果邮件复选框的数量与邮件复选框中被选定的的数量相同
+            //则控制复选框要选定，否则不选定
+            //获取控件复选框对象
+            let ctlBoxEle = document.getElementById('ctlBox');
+            // 获取所有名称为mailBox的复选框
+            let mailBoxEles = document.getElementsByName('mailBox');
+            //////////////////////////////////////////////////////
+            ctlBoxEle.checked = mailBoxEles.length == getMailBoxCheckedNum();
+            //调用改变按钮状态的函数
+            controlButtonStatus();
+
+        }
+
+
+
+        // 控制按钮的状态
+        function controlButtonStatus() {
+            //只要有一个邮件复选框被选定，则按钮就可用，否则不可用
+            let deleteButtonEle = document.getElementById('delete');
+            let recycleButtonEle = document.getElementById('recycle');
+            deleteButtonEle.disabled = recycleButtonEle.disabled = !getMailBoxCheckedNum();
+
+        }
+        //获取邮件复选框的被选定的数量
+        function getMailBoxCheckedNum() {
+            //计数器的初始值
+            let count = 0;
+            // 获取所有名称为mailBox的复选框
+            let mailBoxEles = document.getElementsByName('mailBox');
+            // 通过遍历来统计被选定的数量
+            mailBoxEles.forEach((ele) => {
+                if (ele.checked) {
+                    count++;
+                }
+            })
+            return count;
+        }
+    </script>
+</body>
+
+</html>

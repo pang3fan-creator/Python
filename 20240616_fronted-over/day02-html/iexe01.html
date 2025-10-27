@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* table{
+            border-spacing: 0px;
+            border: 1px solid #000;
+        }
+        tr{ 
+             border: 1px solid #000 ; 
+         }
+        td{
+            border: 1px solid #000 ;
+            border-spacing: 0px;
+            padding: 10px
+        } */
+    </style>
+</head>
+<body>
+    <h1>用户注册</h1>
+    <form action="" enctype="multipart/form-data">
+        <table border="1" width="800" cellspacing="0" cellpadding="20" align="center">
+            <tr>
+                <td>用户名</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>确认密码</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td><input type="radio" name="name_1" checked value="0">男<input type="radio" name="name_1" value="1">女</td>
+            </tr>
+            <tr>
+                <td>您的体育爱好有：</td>
+                <td>
+                    <input type="checkbox" name="checkbox">篮球
+                    <input type="checkbox" name="checkbox">足球
+                    <input type="checkbox" name="checkbox">排球
+                    <input type="checkbox" name="checkbox">羽毛球
+                    <input type="checkbox" name="checkbox">乒乓球
+                </td>
+            </tr>
+            <tr>
+                <td>籍贯：</td>
+                <td><select name="select" id="select">
+                    <option value="1">天津</option>
+                    <option value="1">北京</option>
+                    <option value="1">重庆</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>请选择要上传的附件</td>
+                <td>       </td>
+            </tr>
+            <tr>
+                <td>个人简介</td>
+                <td><textarea name="" id=""></textarea></td>
+            </tr>
+            <tr >
+                <td colspan='2'>
+                <input type="submit" name="submit" value="快速注册">
+                <input type="reset" name="reset" value="重置表单">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

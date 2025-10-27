@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'frontend/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/styles/forget.css' %}">
+    <style type="text/css">
+        body{
+            background: url('{% static 'frontend/images/login-bg1-v2.jpg' %}')
+        }
+    </style>
+    <title>知库管理平台::找回密码</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <div class="quick"><a href="/" title="返回首页"></a></div>
+            <h1 class="head">输入验证码</h1>           
+            <form action="" method="post" class="form-inputs">               
+                {% csrf_token %}
+                <input type="text" name="verify" id="verify" class="input" placeholder="请输入验证码">
+                <input type="submit" value="提交验证" class="input submit">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+    <form method="post">
+        <table width="800" align="center" cellpadding="20" cellspacing="0" border="1">
+            <tr>
+                <td>省份</td>
+                <td>
+                    <select name="provinces" id="provinces" onchange="changeCity()">
+                        <option value="0">北京市</option>
+                        <option value="1">上海市</option>
+                        <option value="2">天津市</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>城市</td>
+                <td>
+                    <select name="cities" id="cities">
+                        <option value="0">请选择...</option>
+
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+        function changeCity() {
+            //获取省份列表框对象
+            let provincesEle = document.getElementById('provinces');
+            //获取选定的省份值
+            let provincesVal = provincesEle.value;
+            //获取城市列表框对象
+            let cityEle = document.getElementById('cities');
+            ///////////////////////////////////////////////////////
+            cityEle.options.length = 1
+            ///////////////////////////////////////////////////////
+            switch (provincesVal) {
+                case '0':
+                    var optEle = new Option('东城区', '1');
+                    cityEle.append(optEle);
+                    var optEle = new Option('西城区', '2');
+                    cityEle.append(optEle);
+                    var optEle = new Option('朝阳区', '3');
+                    cityEle.append(optEle);
+                    break;
+                case '1': //上海
+
+                    //创建Option对象
+                    var optEle = new Option('浦东新区', '0');
+                    //将Option对象添加到城市列表框中
+                    cityEle.append(optEle);
+                    var optEle = new Option('浦西新区', '1');
+                    cityEle.append(optEle);
+                    var optEle = new Option('虹桥区', '2');
+                    cityEle.append(optEle);
+                    var optEle = new Option('徐汇区', '3');
+                    cityEle.append(optEle);
+                    break;
+                case '2': //天津
+                    var optEle = new Option('南开区', '0');
+                    cityEle.append(optEle);
+                    var optEle = new Option('和平区', '1');
+                    cityEle.append(optEle);
+                    var optEle = new Option('河东区', '2');
+                    cityEle.append(optEle);
+                    break;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<div id="header">
+    <div class="clearfix">
+        <div class="header-left">
+            <div class="collapse-icon"></div>
+            <div class="sitename">知库管理平台</div>
+        </div>
+        <div class="header-right">
+            <div class="user">
+                <div class="avatar">
+                    {% if 'backend' in request.session.keys %}
+                    <img src="{{ MEDIA_URL|add:'backend/avatar/'|add:request.session.backend.face }}" alt="">
+                    {% endif %}
+                </div>
+                <div class="nickname">
+                    {% if 'backend' in request.session.keys %}
+                    <a href="/backend/logout/">{{  request.session.backend.nickname }}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

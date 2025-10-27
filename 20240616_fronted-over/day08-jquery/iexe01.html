@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../jquery/reset.css">
+    <script src="../jquery/jquery-3.7.1.js"></script>
+    <style>
+        #t1{
+            width: 960px;;
+            background-color: #f1f1f1;
+            margin: 0 auto;
+            }
+        td{
+            text-align: center;
+            padding: 8px;
+            border-collapse: collapse;
+            border:1px solid #000;
+        }
+        td a{
+            color: blue;            
+        }
+        .trcolor{
+            background-color: rgb(219, 219, 219);
+        }
+        .tempcolor{
+            background-color: rgb(252, 226, 226);
+        }
+
+
+    </style>
+</head>
+<body>
+    <table id="t1">
+        <tr>
+            <td width="100px"><input type="radio" name="c1"></td>
+            <td>右键主题</td>
+            <td>操作</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="c1"></td>
+            <td>A</td>
+            <td><a href="#">删除</a>&nbsp;<a href="#">编辑</a>&nbsp;放入回收站</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="c1"></td>
+            <td>B</td>
+            <td><a href="#">删除</a>&nbsp;<a href="#">编辑</a>&nbsp;放入回收站</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="c1"></td>
+            <td>C</td>
+            <td><a href="#">删除</a>&nbsp;<a href="#">编辑</a>&nbsp;放入回收站</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="c1"></td>
+            <td>D</td>
+            <td><a href="#">删除</a>&nbsp;<a href="#">编辑</a>&nbsp;放入回收站</td>
+        </tr>
+    </table>
+    <script>
+        let radioJQ= $('[name=c1][type=radio]');
+        let checkboxJQ=$('[name=c1][type=checkbox]');     
+        let aJQ=$('[href="#"]');
+        radioJQ.on('click',function(){
+            checkboxJQ.prop('checked',$(this).prop('checked'))
+            checkboxJQ.each(function(){
+                $(this).parent().parent().addClass('trcolor')
+            })
+        });
+        checkboxJQ.click(function(){ 
+            radioJQ.prop('checked',sum()==checkboxJQ.length)            
+            $(this).parent().parent().toggleClass('trcolor')
+        });
+        checkboxJQ.parents('tr').mouseover(function(){
+            if($(this).find('[name="c1"]').prop('checked')==false){
+                $(this).addClass('tempcolor')
+            }            
+        })
+        checkboxJQ.parents('tr').mouseout(function(){
+            $(this).removeClass('tempcolor')         
+        })
+        aJQ.click(function(){
+            if(window.confirm('确定删除？')){
+                $(this).parents('tr').remove()
+            }            
+        })
+        function sum(){
+            let sum=0;
+            checkboxJQ.each(function(){
+                sum+=$(this).prop('checked')})
+            return sum
+        };
+    </script>
+</body>
+</html>

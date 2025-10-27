@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'frontend/styles/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'frontend/styles/forget.css' %}">
+    <title>知库管理平台::找回密码</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <div class="quick"><a href="/"></a></div>
+            <h1 class="head">找回密码</h1>
+            <form action="" method="post" class="form-inputs">
+                {% csrf_token %}
+                <input type="text" name="email" id="email" class="input" placeholder="电子邮箱">
+                <input type="submit" value="重置密码" class="input submit">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

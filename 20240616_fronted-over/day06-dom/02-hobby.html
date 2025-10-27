@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body>
+	<table width="1000" align="center" cellpadding="15" cellspacing="0" border="1">
+		<tr>
+			<td>爱好</td>
+			<td>
+				<input type="checkbox" name="hobby" value="1" onclick="controlCheckedNum(this)">A
+				<input type="checkbox" name="hobby" value="2" onclick="controlCheckedNum(this)">B
+				<input type="checkbox" name="hobby" value="3" onclick="controlCheckedNum(this)">C
+				<input type="checkbox" name="hobby" value="4" onclick="controlCheckedNum(this)">D
+				<input type="checkbox" name="hobby" value="5" onclick="controlCheckedNum(this)">E
+			</td>
+		</tr>
+	</table>
+	<script>
+		function controlCheckedNum(obj) {
+			let count = 0;
+			let hobbyEles = document.getElementsByName('hobby'); //NodeList
+			hobbyEles.forEach((ele) => {
+				if (ele.checked) {
+					count++;
+				}
+			});
+			if (count > 3) {
+				window.alert('最多选三个');
+				//让当前的这个复选框的状态为false				
+				obj.checked = false;
+			}
+		}
+	</script>
+</body>
+
+</html>

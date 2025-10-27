@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+<body>
+	<p>1</p>
+	<p>2</p>
+	<p>3</p>
+	<p>4</p>
+	<p>5</p>
+	<div><input type="button" value="删除所有的段落" onclick="removeParagraphs()"></div>
+	<script>
+		function removeParagraphs() {
+			//获取所有的段落 -- 段落形成的集合 [A,B,C,D,E]
+			let ps = document.getElementsByTagName('p');
+			// 循环删除
+			for (let n = ps.length - 1; n >= 0; n--) {
+				document.body.removeChild(ps[n]);
+			}
+
+		}
+	</script>
+</body>
+
+</html>

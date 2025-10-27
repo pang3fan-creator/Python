@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+    <input type="button" value="获取参数" id="button">
+    <script type="text/javascript">
+        let buttonEle = document.getElementById('button');
+        buttonEle.onclick = () => {
+            localStorage.setItem('username', 'tom');
+            localStorage.setItem('token', 'ab.cd.ef');
+
+            console.log(localStorage.getItem('username'));
+            console.log(localStorage.getItem('token'));
+
+            localStorage.removeItem('username');
+        }
+    </script>
+</body>
+
+</html>

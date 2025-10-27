@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#container{
+			width: 960px;
+			margin: 0 auto;
+		}
+		table{
+			border-collapse: collapse;
+			border-spacing: 0;
+			width: 100%;
+		}
+		td{
+			padding: 10px;
+			border:1px solid #333;
+		}
+		.select{
+			width:160px;
+		}
+	</style>
+</head>
+<body>
+	<form method="post">
+		<table>
+			<tr>
+				<td>省份</td>
+				<td>
+					<select id="provinces" name="provinces" class="select">
+						<option value="0">北京市</option>
+						<option value="1">上海市</option>
+						<option value="2">天津市</option>
+					</select>
+				</td>				
+			</tr>
+			<tr>
+				<td>城市</td>
+				<td>
+					<select id="cities" name="cities" class="select">
+						<option value="-1">请选择...</option>
+					</select>
+				</td>
+			</tr>
+		</table>		
+	</form>
+	<script src="scripts/jquery-3.7.1.js"></script>
+	<script>
+		let citiesArray = [];
+		citiesArray[0] = [
+			{'name':'东城区','code':'10001'},
+			{'name':'西城区','code':'10003'},
+			{'name':'海淀区','code':'10009'},
+			{'name':'朝阳区','code':'10016'},
+			{'name':'丰台区','code':'10024'},
+			
+		
+		];
+		citiesArray[1] = [
+			{'name':'徐汇区','code':'20006'},
+			{'name':'浦东新区','code':'20019'},
+			{'name':'长宁区','code':'20085'},
+			{'name':'普陀区','code':'20069'},
+			
+		];
+		citiesArray[2] = [
+			{'name':'和平区','code':'30001'},
+			{'name':'河东区','code':'30002'},
+			{'name':'河西区','code':'30003'},
+			{'name':'南开区','code':'30004'},
+			{'name':'河北区','code':'30005'},
+			
+		];		
+
+
+
+		$('#provinces').on('change',function(){
+			//清空城市列表框中的所有项目
+			$('#cities').empty().append('<option value="-1">请选择...</option>');
+
+			//可以将jQuery对象转换成DOM对象，然后调用DOM对象的属性或方法
+			// $('#cities')[0].options.length = 1;
+			
+			let provincesVal = $(this).val();
+			for(let n = 0; n < citiesArray[provincesVal].length ;n++){
+				$('#cities').append(`<option value="${citiesArray[provincesVal][n].code}">${citiesArray[provincesVal][n].name}</option>`);
+			}
+		});
+
+		//自动触发省份列表框的change事件
+
+		$('#provinces').trigger('change');
+
+	</script>
+</body>
+</html>

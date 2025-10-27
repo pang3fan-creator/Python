@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#container{
+			width:960px;
+			margin: 0 auto;
+		}
+		#container table{
+			width: 100%;
+			border-collapse: collapse;
+		}
+		#container td{
+			padding:15px;
+			border:1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<form method="post">
+			<table>
+				<tr>
+					<td><input type="checkbox" name="ctlBox" id="ctlBox" value="1" onclick="controlMailBoxStatus()"></td>
+					<td>邮件主题</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="mailBox" value="1"></td>
+					<td>HTML笔记1</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="mailBox" value="2"></td>
+					<td>HTML笔记2</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="mailBox" value="3"></td>
+					<td>HTML笔记3</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="mailBox" value="4"></td>
+					<td>HTML笔记4</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script type="text/javascript">
+		function controlMailBoxStatus(){
+			// 获取控制复选框对象
+			let ctlBoxEle = document.getElementById('ctlBox');
+			// 获取所有名称为mailBox的复选框 -- 返回值的类型为NodeList
+			let mailBoxEles = document.getElementsByName('mailBox');
+			// 遍历NodeList对象,其中ele代表的组成当前NodeList的每一个成员
+			mailBoxEles.forEach((ele)=>{
+				//让每一个成员的状态与控制复选框的状态相同
+				ele.checked = ctlBoxEle.checked;
+			});
+
+		}
+
+	</script>
+</body>
+</html>

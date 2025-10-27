@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.c1{
+			color:red;
+		}
+		.c2{
+			font-style: italic;
+		}
+	</style>
+</head>
+<body>
+	<p id="p">我是段落</p>
+	<p><input type="button" value="添加CSS类" id="button1"></p>
+	<script src="scripts/jquery-3.7.1.js"></script>
+	<script type="text/javascript">
+		$('#button1').on('click',function(){
+			$('#p').toggleClass('c1 c2');
+		});
+	</script>
+</body>
+</html>

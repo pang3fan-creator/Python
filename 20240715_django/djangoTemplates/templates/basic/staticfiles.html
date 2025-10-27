@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+{% include 'inc/header.html' with title="静态资源" %}
+
+<!-- {{ username }} -->
+
+<style>
+    .sina_logo1{
+        width: 111px;
+        height: 47px;
+        margin: 10px auto;
+        text-indent: -9999px;
+        {% verbatim %}
+        /*  {% ... %}称为服务器代码，是在Django开发服务器上运行的   */
+        /* width:111px,称为客户端代码，是在浏览器上运行的  */
+        /* 服务器端的代码优先运行于客户端代码 */
+        {% endverbatim %}        
+        background-image:url('{% static 'images/sina_logo.png' %}');
+    }
+</style>
+<body>
+    <div class="container">
+        <h1 class="heading">静态资源</h1>
+        <div class="logo">
+            <img src="{% static "images/logo.png" %}" alt="">
+        </div>
+        <div class="sina_logo1">新浪LOGO</div>
+        <div class="sina_logo2">新浪LOGO</div>
+        {% include 'inc/footer.html'%}       
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>用户注册</title>
+</head>
+
+<body>
+	<h1>用户注册</h1>
+	<form action="" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="csrf_token" value="9875041004565">
+		<table width="800" cellpadding="10" cellspacing="0" border="1">
+			<tr>
+				<td>用户名</td>
+				<td><input type="text" name="username"></td>
+			</tr>
+			<tr>
+				<td>密码</td>
+				<td><input type="password" name="password"></td>
+			</tr>
+			<tr>
+				<td>确认密码</td>
+				<td><input type="password" name="password2"></td>
+			</tr>
+			<tr>
+				<td>性别 </td>
+				<td>
+					男<input type="radio" name="sex" value="0" checked>
+					女<input type="radio" name="sex" value="1">
+				</td>
+			</tr>
+			<tr>
+				<td>您的体育爱好有：</td>
+				<td>
+					篮球<input type="checkbox" name="sports" value="0">
+					足球<input type="checkbox" name="sports" value="1">
+					排球<input type="checkbox" name="sports" value="2">
+					羽毛球<input type="checkbox" name="sports" value="3">
+					乒乓球<input type="checkbox" name="sports" value="4">
+				</td>
+			</tr>
+			<tr>
+				<td>籍贯</td>
+				<td>
+					<select name="provinces">
+						<optgroup label="华北地区">
+							<option value="1">北京市</option>
+							<option value="2" selected>天津市</option>
+							<option value="3">山东省</option>
+						</optgroup>
+						<optgroup label="华南地区">
+							<option value="4">广东省</option>
+							<option value="5">福建省</option>
+						</optgroup>
+						<option value="6">香港</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>请选择要上传的附件</td>
+				<td>
+					<p>限定PNG文件</p>
+					<p><input type="file" name="attachment1" multiple accept="image/png"></p>
+					<p>限定PNG或GIF文件</p>
+					<p><input type="file" name="attachment2" multiple accept="image/png,image/gif"></p>
+					<p>限定只能为图像文件</p>
+					<p><input type="file" name="attachment3" multiple accept="image/*"></p>
+				</td>
+			</tr>
+			<tr>
+				<td>个人简介</td>
+				<td><textarea name="introduce" cols="60" rows="10" placeholder="请输入您的比较详细的个人简介"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit" name="submit" value="快速注册">
+					<input type="reset" name="reset" value="重置表单">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>
