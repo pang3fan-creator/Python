@@ -1,4 +1,9 @@
-import django
+import datetime
+import time
+import os
+print(os.getcwd())
 
-res = django.get_version()
-print(res)
+print(datetime.datetime.now())
+
+
+print(1+2)
